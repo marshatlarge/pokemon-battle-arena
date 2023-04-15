@@ -7,14 +7,39 @@ class Pokemon {
     
     Pokemon should be able to take damage, do damage, have status effects and heal 
     (Note - must account for moves that heal).
+
+    have to have a typing system to determine if an attack is supereffective
     */
 
-    constructor(health, attack, defense) {
+    constructor(health, attack, defense, speed, type, weaknesses, immunities, strengths) {
         this.health = health
         this.attack = attack
         this.defense = defense
-        //this.gender = ASSIGN RANDOM GENDER
+        this.speed = speed
+        this.type = type
+        this.status = 'Neutral'
 
+        this.weakness_list = weaknesses
+        this.immunites = immunities
+        this.strengths = strengths //need a better word for this one
+        
+        this.moveSet = []
+        //this.gender = ASSIGN RANDOM GENDER
+    }
+
+    takeDamage(move) {
+    }
+
+    getMove(string) { //gets a move based on the string--pass move selection into this and it returns a move
+        for (let move of this.moveSet) {
+            if (move.name == string) {
+                return move
+            }
+        }
+    }
+
+    setStatus(status) {
+        this.status = status
     }
 
 }
@@ -23,11 +48,14 @@ class Move {
 
 
     /*
-    Each move should have a type, damage, 
+    Each move should have a type, damage, whether is is a status or damage move,
     chance to affect status, chance to crit (might just be built into battle)
     */
-
-    constructor() {
+    constructor(type, name) {
+        self.type = type
+        self.name = name
+        
+        isSuperEffective = false
 
     }
 
