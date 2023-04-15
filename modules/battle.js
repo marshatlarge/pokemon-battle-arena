@@ -8,9 +8,14 @@ class Battle { //could also name this class "Trainer"
 
     useMove(attacker, target, move) {
         //get base damage from the attacker (based on their attack)
-        damage = BattleUtilities.sumDamage(attacker, target, move)
+        damage = BattleUtilities.sumDamage(attacker, move)
 
-        damage = BattleUtilities.applyEffectiveness(damage)
+        damage = BattleUtilities.applyEffectiveness(damage, target, move)
+
+        if (BattleUtilities.determineIfCritical()) {
+            damage = BattleUtilities.applyCritical(damage)
+        }
+        
 
 
 
@@ -26,10 +31,12 @@ class Battle { //could also name this class "Trainer"
 
 class BattleUtilities {
 
-    sumDamage(attacker, target, move) {
+    sumDamage(attacker, move) {
+
+        //returns a damage value
     }
 
-    applyEffectiveness(damage) {
+    applyEffectiveness(damage, target, move) {
             //if the move type is one of the pokemon's weaknesses, add a little exta
             for (let weakness of target.weakness_list) {
                 if (move.type == weakness) {
@@ -37,9 +44,38 @@ class BattleUtilities {
                     //also indicate supereffectiveness
                 }
             }
+
+            for (let resistance of target.resistance_list) {
+                if (move.type == resistance) {
+                    damage = damage * 0.85
+                }
+            }
+
+            for (let immunity of target.immunities_list) { //may want to put this somewhere else in the code
+                if (move.type == immunity) {
+                    damage = 0
+                    //Indicate immunity
+                }
+                
+            }
                 
             //Do something if it's not super effective
-             //if it's a crit, add a little extra
+            //if it's a crit, add a little extra
+
+            //returns damage
+
+    }
+
+    applyCritical(damage) { //might be able to figure out a better name for this one
+        //because the name assumes that it's a critical hit and it's just adding it
+        //still need a better name
+
+            return damage += damage * 1.2
+    }
+    
+
+    determineIfCritical() {
+        //returns a boolean value indicating whether an attack is critical or not
 
     }
 

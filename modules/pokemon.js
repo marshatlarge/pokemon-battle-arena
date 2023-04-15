@@ -11,7 +11,7 @@ class Pokemon {
     have to have a typing system to determine if an attack is supereffective
     */
 
-    constructor(health, attack, defense, speed, type, weaknesses, immunities, strengths) {
+    constructor(health, attack, defense, speed, type, weaknesses, immunities, resistances) {
         this.health = health
         this.attack = attack
         this.defense = defense
@@ -20,8 +20,8 @@ class Pokemon {
         this.status = 'Neutral'
 
         this.weakness_list = weaknesses
-        this.immunites = immunities
-        this.strengths = strengths //need a better word for this one
+        this.immunities_list = immunities
+        this.resistance_list = resistances
         
         this.moveSet = []
         //this.gender = ASSIGN RANDOM GENDER
