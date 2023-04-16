@@ -11,29 +11,37 @@ export default class Pokemon {
     have to have a typing system to determine if an attack is supereffective
     */
 
-    constructor(health, attack, defense, speed, type, weaknesses, immunities, resistances, moveSet) {
+    //don't make attack or defense greater than 100 right now keep defense below 30
+    constructor(moveSet, health, attack, defense, speed, type, weaknesses, immunities, resistances) {
+        
+        //basics (build out battle systems using these first)
+        this.moveSet = moveSet
         this.health = health
         this.maxHealth = health
         this.attack = attack
         this.defense = defense
-        this.speed = speed
-        this.type = type
-        this.status = 'Neutral'
 
+
+        //more advanced (apply these to battle systems after building them out using)
+        //the more fundational stats
+        this.type = type
         this.weakness_list = weaknesses
         this.immunities_list = immunities
         this.resistance_list = resistances
-        
-        this.moveSet = moveSet
+
+        //build out battle systems using these last
+        this.speed = speed
+        this.status = 'Neutral' //status effects
         //this.gender = ASSIGN RANDOM GENDER
     }
 
-    takeDamage(damage) {
+    takeDamage(damage) { //I can redo the formulas for taking and dealing damage later. Just want to make the system work first.
+        this.health += -damage + Math.round(this.defense / 100 * damage)
+        return
     }
 
-    dealDamage(move) {
-        //calculate damage for move based on attack value
-
+    dealDamage(move) { //damage is based on the moves power and the attack-can redo formula later
+        return this.attack + Math.round((move.power * this.attack / 100))
     }
 
     getMove(string) { //gets a move based on the string--pass move selection into this and it returns a move

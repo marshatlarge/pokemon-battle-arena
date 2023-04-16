@@ -9,6 +9,8 @@ export default class BattleController { //could also name this class "Trainer"
 
     useMove(attacker, target, move) {
         //get base damage from the attacker (based on their attack)
+
+        /*
         if(determineIfMisses(move)) {
             //announce that a move missed
             //likely return so nothing happens
@@ -17,12 +19,16 @@ export default class BattleController { //could also name this class "Trainer"
         if (determineIsImmune(target, move)) {
             //DO SOMETHING IF SOMEBODY IS IMMUNE
         }
+        */
+
 
         damage = attacker.dealDamage(move)
-        damage = BattleUtilities.applyEffectiveness(damage, target, move)
+        //damage = BattleUtilities.applyEffectiveness(damage, target, move)
+        /*
         if (BattleUtilities.determineIfCritical()) {
             damage = BattleUtilities.applyCritical(damage)
         }
+        */
         
         //deal damage to target (based on their defense)
         target.takeDamage(damage)
@@ -32,7 +38,7 @@ export default class BattleController { //could also name this class "Trainer"
 
 
 
-    
+
     usePotion(user, target){ //going to need to redo this as well
         user.numPotions += -1
         target.drinkPotion()
