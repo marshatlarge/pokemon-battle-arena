@@ -8,7 +8,14 @@ class Battle { //could also name this class "Trainer"
 
     useMove(attacker, target, move) {
         //get base damage from the attacker (based on their attack)
-        damage = BattleUtilities.sumDamage(attacker, move)
+
+
+        if (determineIsImmune(target, move)) {
+            //DO SOMETHING IF SOMEBODY IS IMMUNE
+        }
+
+
+        damage = attacker.dealDamage(move)
 
         damage = BattleUtilities.applyEffectiveness(damage, target, move)
 
@@ -31,13 +38,9 @@ class Battle { //could also name this class "Trainer"
 
 class BattleUtilities {
 
-    sumDamage(attacker, move) {
-
-        //returns a damage value
-    }
-
     applyEffectiveness(damage, target, move) {
-            //if the move type is one of the pokemon's weaknesses, add a little exta
+            
+            //increase damage if supereffective
             for (let weakness of target.weakness_list) {
                 if (move.type == weakness) {
                     damage = damage * 1.2
@@ -45,24 +48,25 @@ class BattleUtilities {
                 }
             }
 
+            //decrease damage if not very effective
             for (let resistance of target.resistance_list) {
                 if (move.type == resistance) {
                     damage = damage * 0.85
+                    //indicate not very effective
                 }
             }
-
-            for (let immunity of target.immunities_list) { //may want to put this somewhere else in the code
-                if (move.type == immunity) {
-                    damage = 0
-                    //Indicate immunity
-                }
                 
-            }
-                
-            //Do something if it's not super effective
-            //if it's a crit, add a little extra
+            return damage
+    }
 
-            //returns damage
+    determineIsImmune(target, move) {
+
+        for (let immunity of target.immunities_list) { //may want to put this somewhere else in the code
+            if (move.type == immunity) {
+                damage = 0
+                //Indicate immunity
+            } 
+        }
 
     }
 
@@ -72,7 +76,6 @@ class BattleUtilities {
 
             return damage += damage * 1.2
     }
-    
 
     determineIfCritical() {
         //returns a boolean value indicating whether an attack is critical or not
@@ -80,5 +83,13 @@ class BattleUtilities {
     }
 
     calculateStatusEffect() {
+    }
+}
+
+
+class BattleAnnouncer() {
+    
+    announceSuperEffective() {
+        //does something with the text
     }
 }

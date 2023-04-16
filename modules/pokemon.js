@@ -27,7 +27,12 @@ class Pokemon {
         //this.gender = ASSIGN RANDOM GENDER
     }
 
-    takeDamage(move) {
+    takeDamage(damage) {
+    }
+
+    dealDamage(move) {
+        //calculate damage for move based on attack value
+
     }
 
     getMove(string) { //gets a move based on the string--pass move selection into this and it returns a move
