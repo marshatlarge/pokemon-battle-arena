@@ -1,4 +1,4 @@
-class Pokemon {
+export default class Pokemon {
 
     /*
     Has moves, type, level,
@@ -11,8 +11,9 @@ class Pokemon {
     have to have a typing system to determine if an attack is supereffective
     */
 
-    constructor(health, attack, defense, speed, type, weaknesses, immunities, resistances) {
+    constructor(health, attack, defense, speed, type, weaknesses, immunities, resistances, moveSet) {
         this.health = health
+        this.maxHealth = health
         this.attack = attack
         this.defense = defense
         this.speed = speed
@@ -23,7 +24,7 @@ class Pokemon {
         this.immunities_list = immunities
         this.resistance_list = resistances
         
-        this.moveSet = []
+        this.moveSet = moveSet
         //this.gender = ASSIGN RANDOM GENDER
     }
 
@@ -47,6 +48,16 @@ class Pokemon {
         this.status = status
     }
 
+    hasFainted() {
+        if (this.health <= 0) {
+            return true
+        }
+    }
+
+    drinkPotion() { //going to need to flesh this out
+       
+    }
+
 }
 
 class Move {
@@ -56,12 +67,11 @@ class Move {
     Each move should have a type, damage, whether is is a status or damage move,
     chance to affect status, chance to crit (might just be built into battle)
     */
-    constructor(type, name) {
+    constructor(type, name, power, accuracy) {
         self.type = type
         self.name = name
-        
-        isSuperEffective = false
-
+        self.power = power
+        self.accuracy = accuracy
     }
 
 }

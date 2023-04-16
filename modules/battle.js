@@ -1,6 +1,7 @@
-class Battle { //could also name this class "Trainer"
+export default class BattleController { //could also name this class "Trainer"
 
     constructor() {
+        
         //passed user's pokemon and opponent's pokemon
         
         //make sure to configure whether moves are super effective or not at the beginning of each value
@@ -8,32 +9,43 @@ class Battle { //could also name this class "Trainer"
 
     useMove(attacker, target, move) {
         //get base damage from the attacker (based on their attack)
-
+        if(determineIfMisses(move)) {
+            //announce that a move missed
+            //likely return so nothing happens
+        }
 
         if (determineIsImmune(target, move)) {
             //DO SOMETHING IF SOMEBODY IS IMMUNE
         }
 
-
         damage = attacker.dealDamage(move)
-
         damage = BattleUtilities.applyEffectiveness(damage, target, move)
-
         if (BattleUtilities.determineIfCritical()) {
             damage = BattleUtilities.applyCritical(damage)
         }
         
-
-
-
-
         //deal damage to target (based on their defense)
         target.takeDamage(damage)
         //apply status affect to target if target doesn't already have a status effect
         //note-also need to build a waiting system in for effects to wear off
+    }
+
+
+
+    
+    usePotion(user, target){ //going to need to redo this as well
+        user.numPotions += -1
+        target.drinkPotion()
+        //announce a potion was used
+    }
+
+    runAway() {
 
     }
 
+    throwPokeball() { //also could come up 
+
+    }
 }
 
 class BattleUtilities {
@@ -64,15 +76,13 @@ class BattleUtilities {
         for (let immunity of target.immunities_list) { //may want to put this somewhere else in the code
             if (move.type == immunity) {
                 damage = 0
-                //Indicate immunity
+                //Indicate/annouce immunity
             } 
         }
 
     }
 
-    applyCritical(damage) { //might be able to figure out a better name for this one
-        //because the name assumes that it's a critical hit and it's just adding it
-        //still need a better name
+    applyCritical(damage) {
 
             return damage += damage * 1.2
     }
@@ -83,6 +93,14 @@ class BattleUtilities {
     }
 
     calculateStatusEffect() {
+        //can implement status effects a bit later
+    }
+
+    determineIfMisses(move) {
+        //calculate probability of missing
+        //return true if misses
+
+
     }
 }
 
