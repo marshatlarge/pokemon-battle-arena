@@ -68,7 +68,7 @@ export default class Pokemon {
 
 }
 
-class Move {
+export class Move {
 
 
     /*
@@ -76,10 +76,10 @@ class Move {
     chance to affect status, chance to crit (might just be built into battle)
     */
     constructor(type, name, power, accuracy) {
-        self.type = type
-        self.name = name
-        self.power = power
-        self.accuracy = accuracy
+        this.type = type
+        this.name = name
+        this.power = power
+        this.accuracy = accuracy
     }
 
 }

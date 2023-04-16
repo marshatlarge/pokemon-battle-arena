@@ -111,7 +111,11 @@ class BattleUtilities {
 }
 
 
-class BattleAnnouncer() {
+class BattleAnnouncer {
+
+    constructor () {
+        
+    }
     
     announceSuperEffective() {
         //does something with the text
