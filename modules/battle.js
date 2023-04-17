@@ -22,7 +22,7 @@ export default class BattleController { //could also name this class "Trainer"
         */
 
 
-        damage = attacker.dealDamage(move)
+        let damage = attacker.dealDamage(move)
         //damage = BattleUtilities.applyEffectiveness(damage, target, move)
         /*
         if (BattleUtilities.determineIfCritical()) {
