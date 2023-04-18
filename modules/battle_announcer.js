@@ -28,7 +28,7 @@ class BattleAnnouncer { //currently these will all be console.logs, but eventual
     }
 
     announceStartOfBattle(){
-        console.log(`A wild trainer appeared with a random pokémon from the Poké API!`)
+        console.log(`A wild trainer appeared with a random Pokémon from the PokéAPI!`)
     }
 
     announceEnemyThrow(pokemon){
