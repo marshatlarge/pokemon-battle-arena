@@ -52,11 +52,12 @@ export default class Trainer { //could also name this class "Trainer"
     }
 
     runAway() {
+        //Give a confirm option for this
 
     }
 
-    throwPokeball() { //also could come up 
-
+    throwPokeball() {
+        BattleAnnouncer.announceThrowPokeball()
     }
 
     hasPotions() {

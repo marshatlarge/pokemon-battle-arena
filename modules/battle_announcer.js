@@ -51,6 +51,10 @@ class BattleAnnouncer { //currently these will all be console.logs, but eventual
         console.log(`${pokemon.name} is already at full health.`)
     }
 
+    announceThrowPokeball(pokemon) {
+        console.log(`Sorry, you can't catch an opposing trainer's Pokemon.`)
+    }
+
 }
 
 export default new BattleAnnouncer()
