@@ -23,15 +23,16 @@ export default class Pokemon {
         this.weakness_list = weaknesses
         this.immunities_list = immunities
         this.resistance_list = resistances
+        this.name = name
+        this.gender = Math.random() < 0.5 ? 'Male' : 'Female'; //reset this for ditto and most ghost pokemon
 
         //build out battle systems using these last
         this.speed = speed
 
+        
         //this.status = 'Neutral' if I wanted to include status effect
         //this.item = '' if I wanted to include items
-
-        this.name = name
-        this.gender = Math.random() < 0.5 ? 'Male' : 'Female';
+        //Note, attack and defense calculations are fairly basic. There aren't any EVs or IVs or Sp. Attk or Sp. Defense
     }
 
     //base this on the pokemon's defensive stat
@@ -51,10 +52,6 @@ export default class Pokemon {
             }
         }
         //could return something else here in case the move doesn't exist (someone messed with text content)
-    }
-
-    setStatus(status) {
-        this.status = status
     }
 
     hasFainted() {
