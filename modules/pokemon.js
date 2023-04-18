@@ -52,6 +52,7 @@ export default class Pokemon {
                 return move
             }
         }
+        //could return something else here in case the move doesn't exist (someone messed with text content)
     }
 
     setStatus(status) {

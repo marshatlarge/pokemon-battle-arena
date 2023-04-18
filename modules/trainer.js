@@ -1,3 +1,5 @@
+import BattleUtils from "./battle_utils.js"
+
 export default class Trainer { //could also name this class "Trainer"
 
     constructor(pokemon) {
@@ -17,20 +19,11 @@ export default class Trainer { //could also name this class "Trainer"
             //announce that a move missed
             //likely return so nothing happens
         }
-
-        if (determineIsImmune(target, move)) {
-            //DO SOMETHING IF SOMEBODY IS IMMUNE
-        }
         */
-
 
         let damage = this.pokemon.dealDamage(move)
-        //damage = BattleUtilities.applyEffectiveness(damage, target, move)
-        /*
-        if (BattleUtilities.determineIfCritical()) {
-            damage = BattleUtilities.applyCritical(damage)
-        }
-        */
+        
+        damage = BattleUtils.applyDamageModifiers(damage, target, move)
         
         //deal damage to target (based on their defense)
         target.takeDamage(damage)
@@ -38,8 +31,11 @@ export default class Trainer { //could also name this class "Trainer"
         //note-also need to build a waiting system in for effects to wear off
     }
 
-
-
+    
+    pickMove(string) {
+        //could format the move from the text content of the page for this
+        return this.pokemon.getMove(string)
+    }
 
     usePotion(user){ //going to need to redo this as well
         user.numPotions += -1
@@ -52,62 +48,6 @@ export default class Trainer { //could also name this class "Trainer"
     }
 
     throwPokeball() { //also could come up 
-
-    }
-}
-
-class BattleUtilities {
-
-    applyEffectiveness(damage, target, move) {
-            
-            //increase damage if supereffective
-            for (let weakness of target.weakness_list) {
-                if (move.type == weakness) {
-                    damage = damage * 1.2
-                    //also indicate supereffectiveness
-                }
-            }
-
-            //decrease damage if not very effective
-            for (let resistance of target.resistance_list) {
-                if (move.type == resistance) {
-                    damage = damage * 0.85
-                    //indicate not very effective
-                }
-            }
-                
-            return damage
-    }
-
-    determineIsImmune(target, move) {
-
-        for (let immunity of target.immunities_list) { //may want to put this somewhere else in the code
-            if (move.type == immunity) {
-                damage = 0
-                //Indicate/annouce immunity
-            } 
-        }
-
-    }
-
-    applyCritical(damage) {
-
-            return damage += damage * 1.2
-    }
-
-    determineIfCritical() {
-        //returns a boolean value indicating whether an attack is critical or not
-
-    }
-
-    calculateStatusEffect() {
-        //can implement status effects a bit later
-    }
-
-    determineIfMisses(move) {
-        //calculate probability of missing
-        //return true if misses
-
 
     }
 }
