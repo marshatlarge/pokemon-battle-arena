@@ -39,6 +39,18 @@ class BattleAnnouncer { //currently these will all be console.logs, but eventual
         console.log(`Go get 'em ${pokemon.name}!`)
     }
 
+    announcePotionUse(pokemon) {
+        console.log(`${pokemon.name} was healed!`)
+    }
+
+    announceZeroPotions() {
+        console.log(`Oops! Unfortunately, you're all out of potions.`)
+    }
+
+    announceHealthLimit(pokemon) {
+        console.log(`${pokemon.name} is already at full health!`)
+    }
+
 }
 
 export default new BattleAnnouncer()
