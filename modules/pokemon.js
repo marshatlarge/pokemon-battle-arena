@@ -1,17 +1,7 @@
 export default class Pokemon {
 
-    /*
-    Has moves, type, level,
-    possibly an item, gender, base stats, a name.
-    Just going to keep stats basic rather than having sp. attk and sp. def.
-    
-    Pokemon should be able to take damage, do damage, have status effects and heal 
-    (Note - must account for moves that heal).
-
-    have to have a typing system to determine if an attack is supereffective
-    */
-
-    //don't make attack or defense greater than 100 right now keep defense below 30
+    //luck and accuracy isn't built into the pokemon itself
+    //potions are the only way to heal. there are no healing moves
     constructor(moveSet, health, attack, defense, speed, weaknesses, immunities, resistances, name) {
         
         //basics (build out battle systems using these first)
@@ -60,8 +50,23 @@ export default class Pokemon {
         }
     }
 
-    drinkPotion() { //going to need to flesh this out
-       
+    consumePotion() { //going to need to flesh this out
+        if (this.isAtFullHealth()) { //This is a double safety measure
+            return //it's already at full health. cancel it or don't allow it-should probably check for this when trying to use a potion anyway
+        }
+
+        if (this.health <= this.maxHealth - 20) {
+            this.health += 20
+        }
+        else {
+            this.health = this.maxHealth
+        }
+    }
+
+    isAtFullHealth() {
+        if (this.health >= this.maxHealth) {
+            return true
+        }
     }
 
 }
@@ -70,8 +75,7 @@ export class Move {
 
 
     /*
-    Each move should have a type, damage, whether is is a status or damage move,
-    chance to affect status, chance to crit (might just be built into battle)
+    Accuracy should not be more than 100. Whatever the value of accuracy out of 100 is the odds it connects
     */
     constructor(type, name, power, accuracy) {
         this.type = type

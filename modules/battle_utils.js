@@ -38,7 +38,6 @@ class BattleUtils {
         for (let weakness of target.weakness_list) {
             if (move.type == weakness) {
               return true
-              //also indicate supereffectiveness
           }
        }
        return false
@@ -53,7 +52,7 @@ class BattleUtils {
 
         for (let resistance of target.resistance_list) {
             if (move.type == resistance) {
-                return true //indicate is not very effective
+                return true
             }
         }
         return false
@@ -62,18 +61,15 @@ class BattleUtils {
     applyResistanceNullifier(damage) {
         //decrease damage if resistant (attack not very effective)
         return damage * 0.85
-
     }
 
     getIsImmune(target, move) {
-        for (let immunity of target.immunities_list) { //may want to put this somewhere else in the code
+        for (let immunity of target.immunities_list) {
             if (move.type == immunity) {
                 return true
-                //Indicate/annouce immunity and call off the attack animations?
             } 
         }
         return false
-
     }
 
     applyImmunityNullifier(damage) {
@@ -96,15 +92,6 @@ class BattleUtils {
             return true
         }
     }
-
-
-
-    
-    //DO BELOW AFTER ADDING MULTIPLIERS
-    calculateStatusEffect() {
-        //can implement status effects a bit later
-    }
-
 
 }
 

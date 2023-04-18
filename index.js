@@ -6,6 +6,7 @@ import BattleAnnouncer from "./modules/battle_announcer.js";
 //Make something else called battle controller that controls the flow of the battle. 
 //This is where Ill use a move is a move is picked and then check for fainting aftwerwards and
 //end the battle if one has fainted
+//Also, randomly assign a level and stats to the enemy trainer's pokemon
 
 //Should have a premade list of movesets for each type of pokmeon, so not to overdo the calls to the API.
 //Also, this way, there will be more control over movesets that make sense for the web app.
@@ -39,6 +40,6 @@ BattleAnnouncer.announceUserThrow(userTrainer.pokemon)
 
 console.log(`${enemyTrainer.pokemon.name}'s health is ${enemyTrainer.pokemon.health}`)
 
-userTrainer.useMove(enemyTrainer.pokemon, userTrainer.pickMove('Watergun'))
+userTrainer.useMove(enemyTrainer.pokemon, userTrainer.pickMove('Tackle'))
 
 console.log(`${enemyTrainer.pokemon.name}'s health is now ${enemyTrainer.pokemon.health}`)
