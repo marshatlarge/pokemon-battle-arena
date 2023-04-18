@@ -7,10 +7,6 @@ export default class Trainer { //could also name this class "Trainer"
 
         this.pokemon = pokemon
         this.numPotions = 3
-        
-        //passed user's pokemon and opponent's pokemon
-        
-        //make sure to configure whether moves are super effective or not at the beginning of each value
     }
 
     useMove(target, move) {
