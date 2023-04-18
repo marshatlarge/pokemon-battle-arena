@@ -12,7 +12,7 @@ export default class Pokemon {
     */
 
     //don't make attack or defense greater than 100 right now keep defense below 30
-    constructor(moveSet, health, attack, defense, speed, type, weaknesses, immunities, resistances) {
+    constructor(moveSet, health, attack, defense, speed, type, weaknesses, immunities, resistances, name) {
         
         //basics (build out battle systems using these first)
         this.moveSet = moveSet
@@ -32,6 +32,8 @@ export default class Pokemon {
         //build out battle systems using these last
         this.speed = speed
         this.status = 'Neutral' //status effects
+
+        this.name = name
         //this.gender = ASSIGN RANDOM GENDER
     }
 
