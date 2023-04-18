@@ -14,15 +14,14 @@ export default class Trainer { //could also name this class "Trainer"
     useMove(target, move) {
         //get base damage from the attacker (based on their attack)
 
-        /*
-        if(determineIfMisses(move)) {
-            //announce that a move missed
-            //likely return so nothing happens
+        //Check for missed
+        if(BattleUtils.determineIfMisses(move)) {
+            console.log('It missed!') //use something from the announcer class here
+            return
         }
-        */
+        
 
         let damage = this.pokemon.dealDamage(move)
-        
         damage = BattleUtils.applyDamageModifiers(damage, target, move)
         
         //deal damage to target (based on their defense)
@@ -31,7 +30,7 @@ export default class Trainer { //could also name this class "Trainer"
         //note-also need to build a waiting system in for effects to wear off
     }
 
-    
+
     pickMove(string) {
         //could format the move from the text content of the page for this
         return this.pokemon.getMove(string)

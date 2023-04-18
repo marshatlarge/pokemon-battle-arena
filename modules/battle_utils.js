@@ -91,6 +91,12 @@ class BattleUtils {
         return damage += damage * 1.2
     }
 
+    determineIfMisses(move) { //accuracy assigned in between values of 0 and 100
+        if (Math.random() > move.accuracy / 100) {
+            return true
+        }
+    }
+
 
 
     
@@ -99,10 +105,7 @@ class BattleUtils {
         //can implement status effects a bit later
     }
 
-    determineIfMisses(move) {
-        //calculate probability of missing
-        //return true if misses
-    }
+
 }
 
 export default new BattleUtils()
