@@ -3,7 +3,11 @@ class BattleUtils {
     constuctor() {
     }
 
-    applyDamageModifiers(damage, target, move) {//Can tweak individual formulas for damage modifiers until finding something that works
+
+
+    //Can tweak individual formulas for damage modifiers until finding something that works
+    //can get rid of console.logs later
+    applyDamageModifiers(damage, target, move) {
 
         if (this.getIsImmune(target, move)) {
             console.log('the target is immune. No damage done.')
