@@ -50,15 +50,3 @@ export default class Trainer { //could also name this class "Trainer"
 
     }
 }
-
-
-class BattleAnnouncer { //this class does stuff to the text when certain things happen in the battle
-
-    constructor () {
-        
-    }
-    
-    announceSuperEffective() {
-        //does something with the text
-    }
-}
