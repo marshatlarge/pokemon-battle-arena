@@ -37,6 +37,7 @@ export default class Pokemon {
         //this.gender = ASSIGN RANDOM GENDER
     }
 
+    //base this on the pokemon's defensive stat
     takeDamage(damage) { //I can redo the formulas for taking and dealing damage later. Just want to make the system work first.
         this.health += -damage + Math.round(this.defense / 100 * damage)
         return
