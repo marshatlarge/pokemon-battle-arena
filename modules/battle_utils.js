@@ -12,7 +12,7 @@ class BattleUtils {
         if (this.getIsImmune(target, move)) {
             BattleAnnouncer.announceImmunity()
             damage = this.applyImmunityNullifier(damage)
-            //maybe return here
+            return damage
         }
 
         if (this.getIsSupereffective(target, move)) {

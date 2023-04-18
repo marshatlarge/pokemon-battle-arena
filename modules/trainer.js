@@ -22,14 +22,11 @@ export default class Trainer { //could also name this class "Trainer"
             return
         }
         
-
+        //calculate and apply damage
         let damage = this.pokemon.dealDamage(move)
         damage = BattleUtils.applyDamageModifiers(damage, target, move)
-        
-        //deal damage to target (based on their defense)
+        //deal damage to target (based on their defense)-need to re-work damage algorithms/calculation but over logic works
         target.takeDamage(damage)
-        //apply status affect to target if target doesn't already have a status effect
-        //note-also need to build a waiting system in for effects to wear off
     }
 
 
