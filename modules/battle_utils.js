@@ -56,6 +56,7 @@ class BattleUtils {
                 return true //indicate is not very effective
             }
         }
+        return false
     }
 
     applyResistanceNullifier(damage) {
