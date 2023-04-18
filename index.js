@@ -26,8 +26,9 @@ let resistanceList2 = ['Water', 'Fire']
 let weaknessList2 = ['Electric', 'Grass']
 let immunitiesList2 = ['']
 
-let charizard = new Pokemon(moveList1,500,100,50,50,'Fire', weaknessList1, immunitiesList1,resistanceList1,'Charizard')
-let blastoise = new Pokemon(moveList2,500,100,30,0,'Water',weaknessList2,immunitiesList2, resistanceList2,'Blastoise')
+let charizard = new Pokemon(moveList1,500,100,50,0, weaknessList1, immunitiesList1,resistanceList1,'Charizard')
+let blastoise = new Pokemon(moveList2,500,100,30,0,weaknessList2,immunitiesList2, resistanceList2,'Blastoise')
+
 
 let userTrainer = new Trainer(blastoise)
 let enemyTrainer = new Trainer(charizard)
