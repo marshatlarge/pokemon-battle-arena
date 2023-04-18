@@ -55,8 +55,8 @@ export default class Pokemon {
             return //it's already at full health. cancel it or don't allow it-should probably check for this when trying to use a potion anyway
         }
 
-        if (this.health <= this.maxHealth - 20) {
-            this.health += 20
+        if (this.health <= this.maxHealth - 50) {
+            this.health += 50
         }
         else {
             this.health = this.maxHealth
@@ -67,6 +67,7 @@ export default class Pokemon {
         if (this.health >= this.maxHealth) {
             return true
         }
+        return false
     }
 
 }

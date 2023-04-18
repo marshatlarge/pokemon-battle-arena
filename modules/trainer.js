@@ -6,6 +6,7 @@ export default class Trainer { //could also name this class "Trainer"
     constructor(pokemon) {
 
         this.pokemon = pokemon
+        this.numPotions = 3
         
         //passed user's pokemon and opponent's pokemon
         
@@ -35,10 +36,19 @@ export default class Trainer { //could also name this class "Trainer"
         return this.pokemon.getMove(string)
     }
 
-    usePotion(user){ //going to need to redo this as well
-        user.numPotions += -1
-        this.pokemon.drinkPotion()
-        //announce a potion was used
+    usePotion(){
+        if (this.hasPotions()) {
+            if (!this.pokemon.isAtFullHealth()) {
+                this.pokemon.consumePotion()
+                BattleAnnouncer.announcePotionUse(this.pokemon)
+                this.numPotions += -1
+            }
+            else {
+                BattleAnnouncer.announceHealthLimit(this.pokemon)
+            }
+        } else {
+            BattleAnnouncer.announceZeroPotions()
+        }
     }
 
     runAway() {
@@ -47,5 +57,12 @@ export default class Trainer { //could also name this class "Trainer"
 
     throwPokeball() { //also could come up 
 
+    }
+
+    hasPotions() {
+        if (this.numPotions > 0) {
+            return true
+        }
+        return false
     }
 }

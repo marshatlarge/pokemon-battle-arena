@@ -48,7 +48,7 @@ class BattleAnnouncer { //currently these will all be console.logs, but eventual
     }
 
     announceHealthLimit(pokemon) {
-        console.log(`${pokemon.name} is already at full health!`)
+        console.log(`${pokemon.name} is already at full health.`)
     }
 
 }
