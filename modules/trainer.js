@@ -1,4 +1,5 @@
 import BattleUtils from "./battle_utils.js"
+import BattleAnnouncer from "./battle_announcer.js"
 
 export default class Trainer { //could also name this class "Trainer"
 
@@ -13,10 +14,11 @@ export default class Trainer { //could also name this class "Trainer"
 
     useMove(target, move) {
         //get base damage from the attacker (based on their attack)
+        BattleAnnouncer.announceMove(this.pokemon, move)
 
         //Check for missed
         if(BattleUtils.determineIfMisses(move)) {
-            console.log('It missed!') //use something from the announcer class here
+            BattleAnnouncer.announceMiss()
             return
         }
         

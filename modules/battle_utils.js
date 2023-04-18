@@ -1,32 +1,32 @@
+import BattleAnnouncer from "./battle_announcer.js"
+
 class BattleUtils {
 
     constuctor() {
     }
-
-
 
     //Can tweak individual formulas for damage modifiers until finding something that works
     //can get rid of console.logs later
     applyDamageModifiers(damage, target, move) {
 
         if (this.getIsImmune(target, move)) {
-            console.log('the target is immune. No damage done.')
+            BattleAnnouncer.announceImmunity()
             damage = this.applyImmunityNullifier(damage)
             //maybe return here
         }
 
         if (this.getIsSupereffective(target, move)) {
-            console.log('its super effective')
+            BattleAnnouncer.announceSupereffective()
             damage = this.applySupereffectiveMultiplier(damage)
         }
 
         if (this.getIsResistant(target, move)) {
-            console.log('The target is resistant')
+            BattleAnnouncer.announceResistance()
             damage = this.applyResistanceNullifier(damage)
         }
 
         if (this.calculateIsCritical()) {
-            console.log('Its a crit')
+            BattleAnnouncer.announceCrit()
             damage = this.applyCritical(damage)
         }
 
