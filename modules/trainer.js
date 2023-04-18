@@ -1,13 +1,15 @@
-export default class BattleController { //could also name this class "Trainer"
+export default class Trainer { //could also name this class "Trainer"
 
-    constructor() {
+    constructor(pokemon) {
+
+        this.pokemon = pokemon
         
         //passed user's pokemon and opponent's pokemon
         
         //make sure to configure whether moves are super effective or not at the beginning of each value
     }
 
-    useMove(attacker, target, move) {
+    useMove(target, move) {
         //get base damage from the attacker (based on their attack)
 
         /*
@@ -22,7 +24,7 @@ export default class BattleController { //could also name this class "Trainer"
         */
 
 
-        let damage = attacker.dealDamage(move)
+        let damage = this.pokemon.dealDamage(move)
         //damage = BattleUtilities.applyEffectiveness(damage, target, move)
         /*
         if (BattleUtilities.determineIfCritical()) {
@@ -39,9 +41,9 @@ export default class BattleController { //could also name this class "Trainer"
 
 
 
-    usePotion(user, target){ //going to need to redo this as well
+    usePotion(user){ //going to need to redo this as well
         user.numPotions += -1
-        target.drinkPotion()
+        this.pokemon.drinkPotion()
         //announce a potion was used
     }
 
@@ -111,7 +113,7 @@ class BattleUtilities {
 }
 
 
-class BattleAnnouncer {
+class BattleAnnouncer { //this class does stuff to the text when certain things happen in the battle
 
     constructor () {
         

@@ -1,6 +1,6 @@
 import Pokemon from "./modules/pokemon.js";
 import { Move } from "./modules/pokemon.js";
-import BattleController from "./modules/battle.js";
+import Trainer from "./modules/trainer.js";
 
 console.log('hello')
 
