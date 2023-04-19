@@ -1,7 +1,6 @@
 import Pokemon from "./modules/pokemon.js";
 import { Move } from "./modules/pokemon.js";
 import Trainer from "./modules/trainer.js";
-import BattleAnnouncer from "./modules/battle_announcer.js";
 import BattleController from "./modules/battle_controller.js";
 
 //Make something else called battle controller that controls the flow of the battle. 
@@ -34,10 +33,6 @@ let blastoise = new Pokemon(moveList2,500,100,30,10,weaknessList2,immunitiesList
 
 let userTrainer = new Trainer(blastoise)
 let enemyTrainer = new Trainer(charizard)
-
-BattleAnnouncer.announceStartOfBattle()
-BattleAnnouncer.announceEnemyThrow(enemyTrainer.pokemon)
-BattleAnnouncer.announceUserThrow(userTrainer.pokemon)
 
 let bc = new BattleController(userTrainer,enemyTrainer)
 

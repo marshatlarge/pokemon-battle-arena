@@ -1,3 +1,5 @@
+import BattleAnnouncer from "./battle_announcer.js"
+
 export default class BattleController {
 
     constructor(userTrainer, cpuTrainer) {
@@ -10,6 +12,10 @@ export default class BattleController {
     }
 
     runBattle() {
+
+        BattleAnnouncer.announceStartOfBattle()
+        BattleAnnouncer.announceEnemyThrow(this.cpu.pokemon)
+        BattleAnnouncer.announceUserThrow(this.user.pokemon)
 
         while(1) {
 
