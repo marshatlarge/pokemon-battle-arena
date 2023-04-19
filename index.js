@@ -2,6 +2,7 @@ import Pokemon from "./modules/pokemon.js";
 import { Move } from "./modules/pokemon.js";
 import Trainer from "./modules/trainer.js";
 import BattleAnnouncer from "./modules/battle_announcer.js";
+import BattleController from "./modules/battle_controller.js";
 
 //Make something else called battle controller that controls the flow of the battle. 
 //This is where Ill use a move is a move is picked and then check for fainting aftwerwards and
@@ -27,8 +28,8 @@ let resistanceList2 = ['Water', 'Fire']
 let weaknessList2 = ['Electric', 'Grass']
 let immunitiesList2 = ['']
 
-let charizard = new Pokemon(moveList1,500,100,50,0, weaknessList1, immunitiesList1,resistanceList1,'Charizard')
-let blastoise = new Pokemon(moveList2,500,100,30,0,weaknessList2,immunitiesList2, resistanceList2,'Blastoise')
+let charizard = new Pokemon(moveList1,500,100,50,100, weaknessList1, immunitiesList1,resistanceList1,'Charizard')
+let blastoise = new Pokemon(moveList2,500,100,30,10,weaknessList2,immunitiesList2, resistanceList2,'Blastoise')
 
 
 let userTrainer = new Trainer(blastoise)
@@ -48,5 +49,10 @@ console.log(`${enemyTrainer.pokemon.name}'s health is now ${enemyTrainer.pokemon
 
 enemyTrainer.usePotion()
 
+let bc = new BattleController(userTrainer,enemyTrainer)
 
-//USE THE TO INSTANTIATE THE BATTLE CONTROLLER.
+console.log(bc.activeTrainer)
+bc.changeTurns()
+console.log(bc.activeTrainer)
+bc.changeTurns()
+console.log(bc.activeTrainer)

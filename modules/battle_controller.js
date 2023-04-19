@@ -1,19 +1,19 @@
-class BattleController {
+export default class BattleController {
 
     constructor(userTrainer, cpuTrainer) {
 
         this.user = userTrainer
         this.cpu = cpuTrainer
 
-        activeTrainer = //set this at the beginning depending on the trainers' pokemon's speed
+        this.activeTrainer = userTrainer.pokemon.speed >= cpuTrainer.pokemon.speed ? this.user : this.cpu
 
     }
 
-    conductBattle() {
+    runBattle() {
 
         while(1) {
 
-            this.conductTurn()
+            this.conductTurn(activeTrainer)
 
             if (this.battleIsOver()) {
                 this.endBattle()
@@ -21,9 +21,6 @@ class BattleController {
 
             this.changeTurns()
         }
-
-        
-
     }
 
 
@@ -32,11 +29,13 @@ class BattleController {
     }
 
     changeTurns() {
-        if (activeTrainer === this.user) {
-            activeTrainer = this.cpu
+        if (this.activeTrainer === this.user) {
+            this.activeTrainer = this.cpu
+            return
         }
-        if (activeTrainer === this.cpu) {
-            activeTrainer = this.user
+        if (this.activeTrainer === this.cpu) {
+            this.activeTrainer = this.user
+            return
         }
     }
 
@@ -70,9 +69,7 @@ class BattleController {
         //after text pops up, maybe need to make the program wait for a click or button press to continue
     }
 
-
-
-
-
 }
+
+
 

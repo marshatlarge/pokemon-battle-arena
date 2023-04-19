@@ -14,7 +14,7 @@ export default class Pokemon {
         this.immunities_list = immunities
         this.resistance_list = resistances
         this.name = name
-        this.gender = Math.random() < 0.5 ? 'Male' : 'Female'; //reset this for ditto and most ghost pokemon
+        this.gender = Math.random() < 0.5 ? 'Male' : 'Female' //reset this for ditto and most ghost pokemon
 
         //build out battle systems using these last
         this.speed = speed
