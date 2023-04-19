@@ -21,14 +21,14 @@ export default class BattleController {
 
             this.conductUserTurn()
 
-            if (this.getBattleIsOver()) {
+            if (this.getBattlerIsDefeated()) {
                 this.endBattle()
                 break
             }
 
             this.conductCpuTurn()
 
-            if (this.getBattleIsOver()) {
+            if (this.getBattlerIsDefeated()) {
                 this.endBattle()
                 break
             }
@@ -106,7 +106,7 @@ export default class BattleController {
         }
     }
 
-    getBattleIsOver() {
+    getBattlerIsDefeated() {
         if (this.getIsUserDefeated()) {
             return true
         }
