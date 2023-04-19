@@ -69,6 +69,11 @@ export default class BattleController {
 
     }
 
+    promptUser() {
+        //maybe take the prompting the user with all the cases and put it in here
+        //then can create another prompt user for picking which attack to use
+    }
+
     conductCpuTurn() {
         this.cpu.useMove(this.user.pokemon, this.cpu.pickMove('Tackle'))
     }
