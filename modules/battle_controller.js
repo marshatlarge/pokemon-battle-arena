@@ -13,19 +13,56 @@ export default class BattleController {
 
         while(1) {
 
-            this.conductTurn(activeTrainer)
+            this.conductUserTurn()
 
-            if (this.battleIsOver()) {
+            if (this.getBattleIsOver()) {
                 this.endBattle()
+                break
             }
 
-            this.changeTurns()
+            this.conductCpuTurn()
+
+            if (this.getBattleIsOver()) {
+                this.endBattle()
+                break
+            }
+
         }
     }
 
 
-    conductTurn(trainer) {
+    conductUserTurn() {
+        let userCommand = prompt(`What would you like to do? Options are "Fight", "Run Away", "Heal", or "Use Pokeball"?`)
 
+        switch (userCommand.toLowerCase()) {
+            case 'fight':
+                console.log(`Great! Which move do you want to use? Just kidding. You can't pick right now.`)
+                this.user.useMove(this.cpu.pokemon, this.user.pickMove('Tackle'))
+                return
+
+            case 'run away':
+                console.log(`You aren't allowed to run right now. I'm trying to test this code.`)
+                return
+            
+            case 'heal':
+                console.log('This might actually work, but I need to build in some tries, throws, and catches to check for weird scenarios')
+                return
+            
+            case 'use pokeball':
+                console.log('Yeah, not gonna work. This command is just in this for show')
+                return
+
+            default:
+                console.log(`That isn't a command. You lose a turn.`)
+                return
+
+        }
+        
+
+    }
+
+    conductCpuTurn() {
+        this.cpu.useMove(this.user.pokemon, this.cpu.pickMove('Tackle'))
     }
 
     changeTurns() {
@@ -39,7 +76,7 @@ export default class BattleController {
         }
     }
 
-    battleIsOver() {
+    getBattleIsOver() {
         if (this.getIsUserDefeated()) {
             return true
         }
@@ -49,18 +86,19 @@ export default class BattleController {
     }
 
     getIsUserDefeated() {
-        if(userTrainer.pokemon.hasFainter()) {
+        if(this.user.pokemon.hasFainted()) {
             return true
         }
     }
 
     getIsCpuDefeated() {
-        if(cpuTrainer.pokemon.hasFainted()) {
+        if(this.cpu.pokemon.hasFainted()) {
             return true
         }
     }
 
     endBattle() {
+        console.log(`The battle is over.`)
         //end the battle and send the user back to the main menu
         //call this if runaway is clicked and confirmed
     }

@@ -39,20 +39,6 @@ BattleAnnouncer.announceStartOfBattle()
 BattleAnnouncer.announceEnemyThrow(enemyTrainer.pokemon)
 BattleAnnouncer.announceUserThrow(userTrainer.pokemon)
 
-userTrainer.usePotion()
-
-console.log(`${enemyTrainer.pokemon.name}'s health is ${enemyTrainer.pokemon.health}`)
-
-userTrainer.useMove(enemyTrainer.pokemon, userTrainer.pickMove('Tackle'))
-
-console.log(`${enemyTrainer.pokemon.name}'s health is now ${enemyTrainer.pokemon.health}`)
-
-enemyTrainer.usePotion()
-
 let bc = new BattleController(userTrainer,enemyTrainer)
 
-console.log(bc.activeTrainer)
-bc.changeTurns()
-console.log(bc.activeTrainer)
-bc.changeTurns()
-console.log(bc.activeTrainer)
+bc.runBattle()
