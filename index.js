@@ -47,3 +47,6 @@ userTrainer.useMove(enemyTrainer.pokemon, userTrainer.pickMove('Tackle'))
 console.log(`${enemyTrainer.pokemon.name}'s health is now ${enemyTrainer.pokemon.health}`)
 
 enemyTrainer.usePotion()
+
+
+//USE THE TO INSTANTIATE THE BATTLE CONTROLLER.

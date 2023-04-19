@@ -36,7 +36,7 @@ class BattleUtils {
     
     getIsSupereffective(target, move) {
         for (let weakness of target.weakness_list) {
-            if (move.type == weakness) {
+            if (move.type === weakness) {
               return true
           }
        }
@@ -51,7 +51,7 @@ class BattleUtils {
     getIsResistant(target, move) {
 
         for (let resistance of target.resistance_list) {
-            if (move.type == resistance) {
+            if (move.type === resistance) {
                 return true
             }
         }
@@ -65,7 +65,7 @@ class BattleUtils {
 
     getIsImmune(target, move) {
         for (let immunity of target.immunities_list) {
-            if (move.type == immunity) {
+            if (move.type === immunity) {
                 return true
             } 
         }

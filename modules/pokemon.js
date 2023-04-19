@@ -37,7 +37,7 @@ export default class Pokemon {
 
     getMove(string) { //gets a move based on the string--pass move selection into this and it returns a move
         for (let move of this.moveSet) {
-            if (move.name == string) {
+            if (move.name === string) {
                 return move
             }
         }
