@@ -51,7 +51,7 @@ export default class BattleController {
                     return
 
                 case 'run away':
-                    console.log(`You aren't allowed to run right now. I'm trying to test this code.`)
+                    
                     return
                 
                 case 'heal':
@@ -63,8 +63,12 @@ export default class BattleController {
                     return
                 
                 case 'use pokeball':
-                    console.log('Yeah, not gonna work. This command is just in this for show')
-                    return
+                    try {
+                        this.user.throwPokeball()
+                    } catch (err) {
+                        continue
+                    }
+                    
 
                 default:
                     console.log(`That isn't a command. You lose a turn.`)

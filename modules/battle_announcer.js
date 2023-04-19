@@ -36,7 +36,7 @@ class BattleAnnouncer { //currently these will all be console.logs, but eventual
     }
 
     announceUserThrow(pokemon) {
-        console.log(`Go get 'em ${pokemon.name}!`)
+        console.log(`Go get 'em ${pokemon.name}!`)  
     }
 
     announcePotionUse(pokemon) {
@@ -51,7 +51,7 @@ class BattleAnnouncer { //currently these will all be console.logs, but eventual
         console.log(`${pokemon.name} is already at full health.`)
     }
 
-    announceThrowPokeball(pokemon) {
+    announceThrowPokeballError(pokemon) {
         console.log(`Sorry, you can't catch an opposing trainer's Pokemon.`)
     }
 
