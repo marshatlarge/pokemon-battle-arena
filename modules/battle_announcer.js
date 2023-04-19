@@ -1,5 +1,6 @@
 class BattleAnnouncer { //currently these will all be console.logs, but eventually these will write to the battle text box as well
-
+//maybe should change where these are called in the code. Should they be called in the battle controller only, or should they be called in trainer methods?
+//and should some of them be replaced with error messages?
     constructor(){
     }
 
