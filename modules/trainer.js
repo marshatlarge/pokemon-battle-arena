@@ -41,9 +41,11 @@ export default class Trainer { //could also name this class "Trainer"
             }
             else {
                 BattleAnnouncer.announceHealthLimit(this.pokemon)
+                throw new Error('Health Already Full')
             }
         } else {
             BattleAnnouncer.announceZeroPotions()
+            throw new Error('No Potions Left')
         }
     }
 

@@ -32,32 +32,40 @@ export default class BattleController {
 
 
     conductUserTurn() {
-        let userCommand = prompt(`What would you like to do? Options are "Fight", "Run Away", "Heal", or "Use Pokeball"?`)
 
-        switch (userCommand.toLowerCase()) {
-            case 'fight':
-                console.log(`Great! Which move do you want to use? Just kidding. You can't pick right now.`)
-                this.user.useMove(this.cpu.pokemon, this.user.pickMove('Tackle'))
-                return
+        while (1) {
 
-            case 'run away':
-                console.log(`You aren't allowed to run right now. I'm trying to test this code.`)
-                return
             
-            case 'heal':
-                console.log('This might actually work, but I need to build in some tries, throws, and catches to check for weird scenarios')
-                return
-            
-            case 'use pokeball':
-                console.log('Yeah, not gonna work. This command is just in this for show')
-                return
+            let userCommand = prompt(`What would you like to do? Options are "Fight", "Run Away", "Heal", or "Use Pokeball"?`)
 
-            default:
-                console.log(`That isn't a command. You lose a turn.`)
-                return
+            switch (userCommand.toLowerCase()) {
+                case 'fight':
+                    console.log(`Great! Which move do you want to use? Just kidding. You can't pick right now.`)
+                    this.user.useMove(this.cpu.pokemon, this.user.pickMove('Tackle'))
+                    return
 
+                case 'run away':
+                    console.log(`You aren't allowed to run right now. I'm trying to test this code.`)
+                    return
+                
+                case 'heal':
+                    try {
+                        this.user.usePotion()
+                    } catch (err) {
+                        continue
+                    }
+                    return
+                
+                case 'use pokeball':
+                    console.log('Yeah, not gonna work. This command is just in this for show')
+                    return
+
+                default:
+                    console.log(`That isn't a command. You lose a turn.`)
+                    return
+
+            }
         }
-        
 
     }
 
