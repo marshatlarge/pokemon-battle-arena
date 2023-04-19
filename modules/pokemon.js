@@ -52,7 +52,7 @@ export default class Pokemon {
 
     consumePotion() { //going to need to flesh this out
         if (this.isAtFullHealth()) { //This is a double safety measure
-            return //it's already at full health. cancel it or don't allow it-should probably check for this when trying to use a potion anyway
+            throw new Error ('Health already full')
         }
 
         if (this.health <= this.maxHealth - 50) {

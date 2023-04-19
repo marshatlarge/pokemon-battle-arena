@@ -34,17 +34,10 @@ export default class Trainer { //could also name this class "Trainer"
 
     usePotion(){
         if (this.hasPotions()) {
-            if (!this.pokemon.isAtFullHealth()) {
-                this.pokemon.consumePotion()
-                BattleAnnouncer.announcePotionUse(this.pokemon)
-                this.numPotions += -1
-            }
-            else {
-                BattleAnnouncer.announceHealthLimit(this.pokemon)
-                throw new Error('Health already full')
-            }
+            this.pokemon.consumePotion()
+            BattleAnnouncer.announcePotionUse(this.pokemon)
+            this.numPotions += -1  
         } else {
-            BattleAnnouncer.announceZeroPotions()
             throw new Error('No potions left')
         }
     }
@@ -55,7 +48,6 @@ export default class Trainer { //could also name this class "Trainer"
     }
 
     throwPokeball() { //throws an error every time because it isn't possible
-        BattleAnnouncer.announceThrowPokeballError()
         throw new Error(`Cannot catch another trainer's Pokemon`)
     }
 

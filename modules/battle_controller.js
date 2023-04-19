@@ -58,6 +58,12 @@ export default class BattleController {
                     try {
                         this.user.usePotion()
                     } catch (err) {
+                        if (err.message === 'No potions left') {
+                            BattleAnnouncer.announceZeroPotions()
+                        }
+                        if (err.message === 'Health already full') {
+                            BattleAnnouncer.announceHealthFull(this.user.pokemon)
+                        }
                         continue
                     }
                     return
@@ -66,6 +72,7 @@ export default class BattleController {
                     try {
                         this.user.throwPokeball()
                     } catch (err) {
+                        BattleAnnouncer.announceThrowPokeballError()
                         continue
                     }
                     
