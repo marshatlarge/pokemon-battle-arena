@@ -31,7 +31,7 @@ export default class Pokemon {
         return
     }
 
-    dealDamage(move) { //damage is based on the moves power and the attack-can redo formula later
+    calculateDamage(move) { //calculates damage for a given move given the pokemon's attack stat
         return this.attack + Math.round((move.power * this.attack / 100))
     }
 
@@ -41,7 +41,7 @@ export default class Pokemon {
                 return move
             }
         }
-        //could return something else here in case the move doesn't exist (someone messed with text content)
+        throw new Error(`${string} is not a part of this Pokemon's moveset`)
     }
 
     hasFainted() {

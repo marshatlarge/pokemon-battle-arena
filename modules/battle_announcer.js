@@ -52,8 +52,16 @@ class BattleAnnouncer { //currently these will all be console.logs, but eventual
         console.log(`${pokemon.name} is already at full health.`)
     }
 
-    announceThrowPokeballError(pokemon) {
+    announceThrowPokeballError() {
         console.log(`Sorry, you can't catch an opposing trainer's Pokemon.`)
+    }
+
+    announceRunAway() {
+        console.log(`You ran away!`)
+    }
+
+    announceBattleOver() {
+        console.log(`The battle is over.`)
     }
 
 }

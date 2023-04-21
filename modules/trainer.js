@@ -10,17 +10,20 @@ export default class Trainer { //could also name this class "Trainer"
     }
 
     useMove(target, move) {
-        //get base damage from the attacker (based on their attack)
+        
         BattleAnnouncer.announceMove(this.pokemon, move)
 
         //Check for missed
-        if(BattleUtils.determineIfMisses(move)) {
+        //this isn't an error and stuff keeps flowing forward.
+        //It isn't like somebody tried to call useMove() and it didn't work. It did work. It just missed.
+        //that is why this isn't an error
+        if(BattleUtils.determineIfMisses(move)) { 
             BattleAnnouncer.announceMiss()
             return
         }
         
-        //calculate and apply damage
-        let damage = this.pokemon.dealDamage(move)
+        //calculate base damage and apply damage mods
+        let damage = this.pokemon.calculateDamage(move)
         damage = BattleUtils.applyDamageModifiers(damage, target, move)
         //deal damage to target (based on their defense)-need to re-work damage algorithms/calculation but over logic works
         target.takeDamage(damage)

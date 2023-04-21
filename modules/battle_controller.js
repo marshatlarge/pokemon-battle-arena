@@ -19,19 +19,18 @@ export default class BattleController {
 
         while(1) {
 
-            this.conductUserTurn()
+            if (this.activeTrainer === this.user) {
+                this.conductUserTurn()
+            } else {
+                this.conductCpuTurn()
+            }
 
             if (this.getBattlerIsDefeated()) {
                 this.endBattle()
                 break
             }
 
-            this.conductCpuTurn()
-
-            if (this.getBattlerIsDefeated()) {
-                this.endBattle()
-                break
-            }
+            this.changeTurns()
 
         }
     }
@@ -41,17 +40,21 @@ export default class BattleController {
 
         while (1) {
 
-            
-            let userCommand = prompt(`What would you like to do? Options are "Fight", "Run Away", "Heal", or "Use Pokeball"?`)
+            let userCommand = this.promptUser()
 
             switch (userCommand.toLowerCase()) {
                 case 'fight':
-                    console.log(`Great! Which move do you want to use? Just kidding. You can't pick right now.`)
-                    this.user.useMove(this.cpu.pokemon, this.user.pickMove('Tackle'))
-                    return
-
-                case 'run away':
+                    try {
+                        this.user.useMove(this.cpu.pokemon, this.getUserMoveChoice())
+                        return
+                    } catch {
+                        console.log(`That isn't a valid move.`)
+                        continue
+                    }
                     
+                case 'run away':
+                    BattleAnnouncer.announceRunAway()
+                    BattleAnnouncer.endBattle()
                     return
                 
                 case 'heal':
@@ -76,7 +79,6 @@ export default class BattleController {
                         continue
                     }
                     
-
                 default:
                     console.log(`That isn't a command. You lose a turn.`)
                     return
@@ -87,8 +89,7 @@ export default class BattleController {
     }
 
     promptUser() {
-        //maybe take the prompting the user with all the cases and put it in here
-        //then can create another prompt user for picking which attack to use
+        return prompt(`What would you like to do? Options are "Fight", "Run Away", "Heal", or "Use Pokeball"?`)
     }
 
     conductCpuTurn() {
@@ -128,13 +129,20 @@ export default class BattleController {
     }
 
     endBattle() {
-        console.log(`The battle is over.`)
+        BattleAnnouncer.announceBattleOver()
         //end the battle and send the user back to the main menu
         //call this if runaway is clicked and confirmed
     }
 
-    waitForClick() {
-        //after text pops up, maybe need to make the program wait for a click or button press to continue
+    getUserMoveChoice() {
+        let moveListString = ''
+        for (let move of this.user.pokemon.moveSet) {
+            moveListString = moveListString + move.name + `, `
+        }
+        moveListString = moveListString.slice(0, -2)
+
+        let moveChoice = prompt(`What move would you like to use? Your Pokémon has the following moves available: ${moveListString}`)
+        return this.user.pickMove(moveChoice)
     }
 
 }
