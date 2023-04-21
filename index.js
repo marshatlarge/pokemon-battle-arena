@@ -3,14 +3,12 @@ import { Move } from "./modules/pokemon.js";
 import Trainer from "./modules/trainer.js";
 import BattleController from "./modules/battle_controller.js";
 
-//Make something else called battle controller that controls the flow of the battle. 
-//This is where Ill use a move is a move is picked and then check for fainting aftwerwards and
-//end the battle if one has fainted
+//Need a module to do trainer and pokemon and move generation via pulling from the API
 //Also, randomly assign a level and stats to the enemy trainer's pokemon
-
 //Should have a premade list of movesets for each type of pokmeon, so not to overdo the calls to the API.
-//Also, this way, there will be more control over movesets that make sense for the web app.
-//avoid moves with status effects or moves that self inflict damage
+//Also, this way, there will be more control over movesets that make sense for the web app. Avoid moves with status effects or moves that self inflict damage for sake of simplicity
+
+
 let move1 = new Move('Fire','Flamethrower',100,100)
 let move2 = new Move('Normal','Tackle',100,100)
 let move3 = new Move('Water','Watergun',100,100)
