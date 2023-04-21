@@ -6,6 +6,7 @@ export default class BattleController {
 
         this.user = userTrainer
         this.cpu = cpuTrainer
+        this.isRunning = true
 
         this.activeTrainer = userTrainer.pokemon.speed >= cpuTrainer.pokemon.speed ? this.user : this.cpu
 
@@ -17,7 +18,7 @@ export default class BattleController {
         BattleAnnouncer.announceEnemyThrow(this.cpu.pokemon)
         BattleAnnouncer.announceUserThrow(this.user.pokemon)
 
-        while(1) {
+        while(this.isRunning) {
 
             if (this.activeTrainer === this.user) {
                 this.conductUserTurn()
@@ -27,7 +28,6 @@ export default class BattleController {
 
             if (this.getBattlerIsDefeated()) {
                 this.endBattle()
-                break
             }
 
             this.changeTurns()
@@ -36,7 +36,7 @@ export default class BattleController {
     }
 
 
-    conductUserTurn() {
+    conductUserTurn() { //could refactor this to add error handler methods passed the errors
 
         while (1) {
 
@@ -54,7 +54,7 @@ export default class BattleController {
                     
                 case 'run away':
                     BattleAnnouncer.announceRunAway()
-                    BattleAnnouncer.endBattle()
+                    this.endBattle()
                     return
                 
                 case 'heal':
@@ -118,20 +118,21 @@ export default class BattleController {
 
     getIsUserDefeated() {
         if(this.user.pokemon.hasFainted()) {
+            //mayebe announce the user's pokemon fainted here
             return true
         }
     }
 
     getIsCpuDefeated() {
         if(this.cpu.pokemon.hasFainted()) {
+            //maybe announce the cpu's pokemon fainted here
             return true
         }
     }
 
     endBattle() {
         BattleAnnouncer.announceBattleOver()
-        //end the battle and send the user back to the main menu
-        //call this if runaway is clicked and confirmed
+        this.isRunning = false
     }
 
     getUserMoveChoice() {
