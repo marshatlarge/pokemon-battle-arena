@@ -34,6 +34,6 @@ let enemyTrainer = new Trainer(charizard)
 
 let bc = new BattleController(userTrainer,enemyTrainer)
 
-bc.runBattle()
+//bc.runBattle()
 
 //BATTLE SYSTEM ISTELF IS COMPLETE EXCEPT FOR DAMAGE FORMULAS (WILL TWEAK AT END)

@@ -53,7 +53,7 @@ export default class BattleController {
                     }
                     
                 case 'run away':
-                    BattleAnnouncer.announceRunAway()
+                    this.user.runAway()
                     this.endBattle()
                     return
                 
