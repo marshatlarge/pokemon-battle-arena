@@ -1,3 +1,7 @@
+p {
+    margin: 0;
+}
+
 body {
     display: flex;
     align-items: center;
@@ -59,7 +63,7 @@ img {
     border-radius: 3px;
     position: relative;
 
-    bottom: 13px;
+    bottom: -3px;
     left: 3px;
 
     height: 45px;
@@ -92,10 +96,10 @@ img {
     position: absolute;
     z-index: 1;
 
-    width: 180px;
+    width: 150px;
     height: auto;
 
-    bottom: 45px;
+    bottom: 52px;
     left: 5px;
 }
 
@@ -103,8 +107,85 @@ img {
     z-index: 2;
     position: absolute;
 
-    width: 150px;
+    width: 120px;
     height: auto;
     left: 20px;
-    bottom: 15px;
+    bottom: 30px;
+}
+
+.infoDisplayContainer {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+
+    background-color: #FFFFE1;
+    border: 3px solid #2E3F19;
+    border-radius: 5px;
+
+    height: 45px;
+    width: 135px;
+
+    right: 10px;
+    bottom: 76px;
+    padding: 2px;
+
+    gap: 0px;
+}
+
+.topRow {
+    font-size: 12px;
+    height: 15px;
+    display: flex;
+    margin-right: 3px;
+    margin-left: 3px;
+    
+}
+
+.levelDisplay {
+    margin-left: auto;
+}
+
+.middleRow {
+    background-color: #57695B;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    height: 15px;
+    border-radius: 15px;
+    width: fit-content;
+    padding-left: 3px;
+    padding-right: 1px;
+    margin-left: auto;
+    
+}
+
+.middleRow p {
+    color: #F6C25E;
+}
+
+.healthBarContainer {
+    background-color: #2E3F19;
+    height: 10px;
+    border-radius: 10px;
+    width: 100px;
+    border: 1px solid #ECEEEC;
+    margin-left: 3px;
+    
+    
+}
+
+.healthBar {
+    background-color: #99FCB4;
+    height: 10px;
+    border-radius: 5px;
+    width: 100px;
+    margin-right: auto;
+
+}
+
+.lastRow {
+    margin-left: auto;
+    width: fit-content;
+    font-size: 12px;
+    margin-right: 4px;
 }
