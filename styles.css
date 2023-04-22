@@ -4,6 +4,11 @@ body {
     justify-content: center;
 }
 
+img {
+    width: 400px;
+    height: auto;
+}
+
 #gbaContainer {
     height: fit-content;
     width: fit-content;
@@ -11,12 +16,49 @@ body {
     position: relative;
 }
 
-.screenBackground {
-    width:40px;
-    height:40px;
+#screenBackground {
+    width:322px;
+    height:228px;
     position: absolute;
     z-index: 10;
     background-color: black;
-    top: 47px;
-    left: 33px;
+    top: 54px;
+    left: 38px;
+
+    
+    background-image: repeating-linear-gradient(#F8FDFD, #F7F7F7 5%);
+      
+}
+
+#textBoxContainer {
+    background-color: #2B3131;
+    position: absolute;
+    width: 322px;
+    height: 75px;
+    bottom:0px
+}
+
+#mustardBG {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    
+    width: 312px;
+    height: 65px;
+    background-color: #C9AE5A;
+    border-radius: 5px;  
+}
+
+#announcerBox {
+    background-color: #335069;
+    border: 2px solid #E5DEE6;
+    border-radius: 3px;
+    position: absolute;
+
+    top: 0px;
+    left: 0px;
+
+    height: 51px;
+    width: 302px;
+
 }
