@@ -37,22 +37,32 @@ img {
 #textBoxContainer {
     background-color: #2B3131;
     position: absolute;
-    width: 322px;
-    height: 75px;
-    bottom:0px;
-
-    z-index: 3;
-}
-
-#mustardBG {
-    position: absolute;
-    bottom: 5px;
-    left: 5px;
-    
     width: 312px;
     height: 65px;
+    bottom:0px;
+    left: 0;
+    padding: 5px;
+
+    z-index: 30;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 3px;
+}
+
+.mustardBG {
+    
+   
+    width: 187px;
+    height: 65px;
     background-color: #C9AE5A;
-    border-radius: 5px;  
+    border-radius: 5px;
+    padding: 2px;
+
+    justify-content: center;
+    align-items: center;
 
  
 }
@@ -61,17 +71,14 @@ img {
     background-color: #335069;
     border: 2px solid #E5DEE6;
     border-radius: 3px;
-    position: relative;
-
-    bottom: -3px;
-    left: 3px;
-
-    height: 45px;
-    width: 292px;
-
     padding: 5px;
 
-  
+    height: 50px;
+}
+
+#selectionBox {
+    background-color: #E5DEE6;
+    border: 2px solid #335069
 }
 
 #enemyCircle {
@@ -201,4 +208,10 @@ img {
     width: fit-content;
     font-size: 12px;
     margin-right: 4px;
+}
+
+li {
+    list-style: none;
+    display: inline;
+    font-size: 14px;
 }
