@@ -27,7 +27,7 @@
             <img id="userCircle" src="./images/battle_circle.png">
             <img id="charizard" src="images/charizard.png">
 
-            <div class="infoDisplayContainer"> <!--Make this ivory/cream colored and then give it a black border with a bit of rounded corners-->
+            <div id="userInfoDisplayContainer" class="infoDisplayContainer"> <!--Make this ivory/cream colored and then give it a black border with a bit of rounded corners-->
                 <div class="topRow">
                     <p class="nameDisplay">Charizard</p>
                     <!--Gender symbol display here using an image-->
@@ -41,6 +41,21 @@
                 </div>
                 <div class="lastRow">
                     <p class="hpDisplay">327/327</p>
+                </div>
+            <!--Maybe add a little arrow or triangle shape that points to the pokemon it is responsible for-->
+            </div>
+
+            <div id="enemyInfoDisplayContainer" class="infoDisplayContainer"> <!--Make this ivory/cream colored and then give it a black border with a bit of rounded corners-->
+                <div class="topRow">
+                    <p class="nameDisplay">Blastoise</p>
+                    <!--Gender symbol display here using an image-->
+                    <p class="levelDisplay">Lv67</p>
+                </div>
+                <div class="middleRow">
+                    <p>HP</p>
+                    <div class="healthBarContainer"><!--Make the outline of this white and the inside black-->
+                        <div class="healthBar"></div> <!--Make this green and change the size of it to indicate health--ONLY DECREASE THE WIDTH OF THIS TO 10PX, OR ELSE STARTS TO BREAK ON UI--> 
+                    </div> 
                 </div>
             <!--Maybe add a little arrow or triangle shape that points to the pokemon it is responsible for-->
             </div>
