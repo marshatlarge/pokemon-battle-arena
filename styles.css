@@ -37,7 +37,7 @@ img {
     height: 75px;
     bottom:0px;
 
-    z-index: 2;
+    z-index: 3;
 }
 
 #mustardBG {
@@ -87,4 +87,13 @@ img {
 
     bottom: 45px;
     left: 5px;
+}
+
+#charizard {
+    z-index: 2;
+    position: absolute;
+
+    width: 150px;
+    left: 20px;
+    bottom: 15px;
 }
