@@ -57,3 +57,7 @@ export default class Trainer { //could also name this class "Trainer"
         return false
     }
 }
+
+
+
+
