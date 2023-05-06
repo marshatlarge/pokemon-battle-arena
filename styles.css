@@ -72,8 +72,10 @@ img {
     border: 2px solid #E5DEE6;
     border-radius: 3px;
     padding: 5px;
+    font-size: 14px;
 
     height: 50px;
+    color: white;
    
 }
 
@@ -217,7 +219,7 @@ img {
 #actionOptionsList {
     grid-template-rows: 30px 30px;
     grid-template-columns: 70px 70px;
-    display: grid;
+    display: none;
     font-size: 14px;
 
     justify-content: center;
