@@ -1,4 +1,4 @@
-export default class Pokemon {
+class Pokemon {
 
     //luck and accuracy isn't built into the pokemon itself
     //potions are the only way to heal. there are no healing moves
@@ -72,7 +72,7 @@ export default class Pokemon {
 
 }
 
-export class Move {
+class Move {
 
 
     /*
@@ -86,3 +86,24 @@ export class Move {
     }
 
 }
+
+let move1 = new Move('Fire','Flamethrower',100,100)
+let move2 = new Move('Normal','Tackle',100,100)
+let move3 = new Move('Water','Watergun',100,100)
+
+
+let moveList1 = [move1, move2]
+let moveList2 = [move2, move3]
+
+let resistanceList1 = ['Fire', 'Grass']
+let weaknessList1 = ['Water']
+let immunitiesList1 = ['']
+
+let resistanceList2 = ['Water', 'Fire']
+let weaknessList2 = ['Electric', 'Grass']
+let immunitiesList2 = ['']
+
+let charizard = new Pokemon(moveList1,500,100,50,100, weaknessList1, immunitiesList1,resistanceList1,'Charizard')
+let blastoise = new Pokemon(moveList2,500,100,30,1000,weaknessList2,immunitiesList2, resistanceList2,'Blastoise')
+
+export default {charizard, blastoise}
