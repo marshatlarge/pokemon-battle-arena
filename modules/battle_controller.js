@@ -80,11 +80,6 @@ export default class BattleController {
         }
     }
 
-
-
-
-
-
     promptUserAction() {
         BattleAnnouncer.announceActionPrompt()
         //wait til user picks a move

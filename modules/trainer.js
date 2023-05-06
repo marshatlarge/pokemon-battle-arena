@@ -14,9 +14,6 @@ export default class Trainer { //could also name this class "Trainer"
         BattleAnnouncer.announceMove(this.pokemon, move)
 
         //Check for missed
-        //this isn't an error and stuff keeps flowing forward.
-        //It isn't like somebody tried to call useMove() and it didn't work. It did work. It just missed.
-        //that is why this isn't an error
         if(BattleUtils.determineIfMisses(move)) { 
             BattleAnnouncer.announceMiss()
             return
