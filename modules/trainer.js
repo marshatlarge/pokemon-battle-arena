@@ -46,8 +46,7 @@ export default class Trainer { //could also name this class "Trainer"
     }
 
     runAway() {
-        BattleAnnouncer.announceRunAway()
-
+        return
     }
 
     throwPokeball() { //throws an error every time because it isn't possible
