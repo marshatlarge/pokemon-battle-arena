@@ -74,12 +74,16 @@ img {
     padding: 5px;
 
     height: 50px;
+   
 }
 
 #selectionBox {
-    background-color: #E5DEE6;
-    border: 2px solid #335069
+    background-color: #FFFFE1;
+
+    display: flex;
+    justify-content: center;
 }
+
 
 #enemyCircle {
     position: absolute;
@@ -210,8 +214,36 @@ img {
     margin-right: 4px;
 }
 
-li {
-    list-style: none;
-    display: inline;
+#actionOptionsList {
+    grid-template-rows: 30px 30px;
+    grid-template-columns: 85px 85px;
+    display: grid;
     font-size: 14px;
+
+    justify-content: center;
+    align-items: center;
+
+    margin-left: 32px;
+
+}
+
+
+
+
+button {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+
+    background: none;
+    border: 4px solid transparent;
+   
+
+}
+
+button:hover {
+    border: none;
+    border-left: 4px double red;
 }
