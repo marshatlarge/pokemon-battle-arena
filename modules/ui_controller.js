@@ -4,6 +4,10 @@ class UIController {
 
     constructor() {
         this.announcerBox = document.getElementById("announcerBox")
+        this.selectionBox = document.getElementById("selectionBox")
+        this.actionOptionsList = document.getElementById("actionOptionsList")
+        this.moveOptionsList = document.getElementById("moveOptionsList")
+
         this.fightButton = document.getElementById("fightButton")
         this.runButton = document.getElementById("runButton")
         this.healButton = document.getElementById("healButton")
@@ -12,18 +16,30 @@ class UIController {
 
         this.configureActionButtons()
         this.configureMoveButtons()
-
     }
 
     updateAnnouncerBoxText(text) {
         this.announcerBox.textContent = text
     }
 
-    displayPickActionScreen() {
+    displayFullAnnouncerBox() {
+        this.selectionBox.style.display = "none"
+        return
+    }
+
+    displayMoveOptionsBox() {
+        this.selectionBox.style.display = "flex"
+        this.actionOptionsList.style.display = "none"
+        this.moveOptionsList.style.display = "grid"
+        return
 
     }
 
-    displayPickMoveScreen() {
+    displayActionOptionsBox() {
+        this.selectionBox.style.display = "flex"
+        this.moveOptionsList.style.display = "none"
+        this.actionOptionsList.style.display = "grid"
+        return
 
     }
 
@@ -39,10 +55,6 @@ class UIController {
             moveButton.addEventListener("click", BattleController.conductUserUseMove(this.textContent))
         }
     }
-
-
-
-
 
 }
 
