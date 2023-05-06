@@ -55,7 +55,7 @@ img {
 .mustardBG {
     
    
-    width: 187px;
+    width: 312px;
     height: 65px;
     background-color: #C9AE5A;
     border-radius: 5px;
@@ -81,6 +81,7 @@ img {
     background-color: #FFFFE1;
     display: flex;
     justify-content: center;
+    
 }
 
 
