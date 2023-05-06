@@ -1,7 +1,7 @@
-import Pokemon from "./modules/pokemon.js";
-import { Move } from "./modules/pokemon.js";
-import Trainer from "./modules/trainer.js";
+import pokemon from "./modules/pokemon.js"
+import Trainer from "./modules/trainer.js"
 import BattleController from "./modules/battle_controller.js";
+import UIController from "./modules/ui_controller.js";
 
 //Need a module to do trainer and pokemon and move generation via pulling from the API
 //Also, randomly assign a level and stats to the enemy trainer's pokemon
@@ -11,32 +11,24 @@ import BattleController from "./modules/battle_controller.js";
 //NOTE- make a class that updates the UI, and make a class that is responsible for performing animations
 //fist build UI by hardcoding sizes and positions of assets. Then, convert those to relative sizes and positions, make responsive.
 
-let move1 = new Move('Fire','Flamethrower',100,100)
-let move2 = new Move('Normal','Tackle',100,100)
-let move3 = new Move('Water','Watergun',100,100)
 
 
-let moveList1 = [move1, move2]
-let moveList2 = [move2, move3]
-
-let resistanceList1 = ['Fire', 'Grass']
-let weaknessList1 = ['Water']
-let immunitiesList1 = ['']
-
-let resistanceList2 = ['Water', 'Fire']
-let weaknessList2 = ['Electric', 'Grass']
-let immunitiesList2 = ['']
-
-let charizard = new Pokemon(moveList1,500,100,50,100, weaknessList1, immunitiesList1,resistanceList1,'Charizard')
-let blastoise = new Pokemon(moveList2,500,100,30,1000,weaknessList2,immunitiesList2, resistanceList2,'Blastoise')
 
 
-let userTrainer = new Trainer(blastoise)
-let enemyTrainer = new Trainer(charizard)
-
-let bc = new BattleController(userTrainer,enemyTrainer)
 
 
-//bc.runBattle()
+let userTrainer = new Trainer(pokemon.charizard)
+let enemyTrainer = new Trainer(pokemon.blastoise)
+
+let bc = new BattleController(userTrainer, enemyTrainer)
+let uic = new UIController()
+
+uic.configureActionButtons(bc)
+uic.configureMoveButtons(bc)
+/*
+uic.configureAnnouncementProgression(bc)
+*/
+
+bc.runBattle()
 
 //BATTLE SYSTEM ISTELF IS COMPLETE EXCEPT FOR DAMAGE FORMULAS (WILL TWEAK AT END)
