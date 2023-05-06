@@ -7,17 +7,31 @@ export default class BattleController {
         this.user = userTrainer
         this.cpu = cpuTrainer
         this.isRunning = true
+        this.isWaitingOnClick = true
 
         this.activeTrainer = userTrainer.pokemon.speed >= cpuTrainer.pokemon.speed ? this.user : this.cpu
 
+
+
+        
     }
 
     runBattle() {
 
         BattleAnnouncer.announceStartOfBattle()
+
+        
+
         BattleAnnouncer.announceEnemyThrow(this.cpu.pokemon)
+
+
+        //while(this.isWaitingOnClick) {}
+
+
         BattleAnnouncer.announceUserThrow(this.user.pokemon)
 
+        //while(this.isWaitingOnClick) {}
+        /*
         while(this.isRunning) {
 
             if (this.activeTrainer === this.user) {
@@ -33,6 +47,11 @@ export default class BattleController {
             this.changeTurns()
 
         }
+
+
+        */
+
+
     }
 
 
@@ -44,9 +63,14 @@ export default class BattleController {
     }
 
 
+    getUserMoveChoice() {
+        BattleAnnouncer.announceMovePrompt(this.user.pokemon)
+        BattleAnnouncer.displayMoveOptionsBox()
+    }
+
     conductUserUseMove(moveChoice) {
         try {
-            this.user.useMove(this.cpu.pokemon, moveChoice)
+            this.user.useMove(this.cpu.pokemon, this.user.pickMove(moveChoice))
             
         } catch {
             BattleAnnouncer.announceInvalidMove()
@@ -68,15 +92,27 @@ export default class BattleController {
     }
 
     conductUserHeal() {
+        
         try {
+            
             this.user.usePotion()
+            
         } catch (err) {
             if (err.message === 'No potions left') {
+                
                 BattleAnnouncer.announceZeroPotions()
             }
             if (err.message === 'Health already full') {
                 BattleAnnouncer.announceHealthFull(this.user.pokemon)
             }
+            console.log(err)
+        }
+    }
+
+
+    toggleIsWaitingOnClick() {
+        if (this.isWaitingOnClick == true) {
+            this.isWaitingOnClick = false
         }
     }
 
@@ -133,8 +169,5 @@ export default class BattleController {
         this.isRunning = false
     }
 
- 
+   
 }
-
-
-
