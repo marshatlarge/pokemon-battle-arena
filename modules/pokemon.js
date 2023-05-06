@@ -90,9 +90,11 @@ class Move {
 let move1 = new Move('Fire','Flamethrower',100,100)
 let move2 = new Move('Normal','Tackle',100,100)
 let move3 = new Move('Water','Watergun',100,100)
+let move4 = new Move('Flying','Air Slash',100,100)
+let move5 = new Move('Fire','Fire Fang',100,100)
 
 
-let moveList1 = [move1, move2]
+let moveList1 = [move1, move2, move4, move5]
 let moveList2 = [move2, move3]
 
 let resistanceList1 = ['Fire', 'Grass']
