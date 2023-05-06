@@ -8,6 +8,7 @@ export default class BattleController {
         this.cpu = cpuTrainer
         this.isRunning = true
         this.isWaitingOnClick = true
+        this.isUserTurn = false
 
         this.activeTrainer = userTrainer.pokemon.speed >= cpuTrainer.pokemon.speed ? this.user : this.cpu
 
@@ -19,46 +20,33 @@ export default class BattleController {
     runBattle() {
 
         BattleAnnouncer.announceStartOfBattle()
-
-        
-
         BattleAnnouncer.announceEnemyThrow(this.cpu.pokemon)
-
-
-        //while(this.isWaitingOnClick) {}
-
-
         BattleAnnouncer.announceUserThrow(this.user.pokemon)
 
-        //while(this.isWaitingOnClick) {}
-        /*
-        while(this.isRunning) {
+        while (this.isRunning) {
 
-            if (this.activeTrainer === this.user) {
+            if (this.activeTrainer == this.user) {
+                this.isUserTurn = true
                 this.conductUserTurn()
-            } else {
-                this.conductCpuTurn()
+                if(this.getBattlerIsDefeated) {
+                    this.endBattle()
+                }
             }
-
-            if (this.getBattlerIsDefeated()) {
-                this.endBattle()
+            if (this.activeTrainer == this.cpu) {
+                this.conductUserTurn()
+                if(this.getBattlerIsDefeated) {
+                    this.endBattle()
+                }
             }
-
+    
             this.changeTurns()
 
         }
-
-
-        */
-
-
     }
 
 
-    conductUserTurn() { //could refactor this to add error handler methods passed the errors
-
-        while (1) {
-            this.promptUserAction()
+    WaitForUserToTakeTurn() { //could refactor this to add error handler methods passed the errors
+        while (isUserTurn) {
         }
     }
 
@@ -114,16 +102,6 @@ export default class BattleController {
         if (this.isWaitingOnClick == true) {
             this.isWaitingOnClick = false
         }
-    }
-
-    promptUserAction() {
-        BattleAnnouncer.announceActionPrompt()
-        //wait til user picks a move
-    }
-
-    promptUserMoveChoice() {
-        BattleAnnouncer.announceMovePrompt()
-        //wait til user picks a move
     }
 
     conductCpuTurn() {
