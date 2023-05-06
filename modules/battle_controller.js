@@ -39,56 +39,51 @@ export default class BattleController {
     conductUserTurn() { //could refactor this to add error handler methods passed the errors
 
         while (1) {
-
             this.promptUserAction()
+        }
+    }
 
-            let userCommand = this.promptUser()
 
-            switch (userCommand.toLowerCase()) {
-                case 'fight':
-                    try {
-                        this.user.useMove(this.cpu.pokemon, this.getUserMoveChoice())
-                        return
-                    } catch {
-                        BattleAnnouncer.announceInvalidMove()
-                        continue
-                    }
-                    
-                case 'run away':
-                    this.user.runAway()
-                    this.endBattle()
-                    return
-                
-                case 'heal':
-                    try {
-                        this.user.usePotion()
-                    } catch (err) {
-                        if (err.message === 'No potions left') {
-                            BattleAnnouncer.announceZeroPotions()
-                        }
-                        if (err.message === 'Health already full') {
-                            BattleAnnouncer.announceHealthFull(this.user.pokemon)
-                        }
-                        continue
-                    }
-                    return
-                
-                case 'use pokeball':
-                    try {
-                        this.user.throwPokeball()
-                    } catch (err) {
-                        BattleAnnouncer.announceThrowPokeballError()
-                        continue
-                    }
-                    
-                default:
-                    console.log(`That isn't a command. You lose a turn.`)
-                    return
+    conductUserUseMove(moveChoice) {
+        try {
+            this.user.useMove(this.cpu.pokemon, moveChoice)
+            
+        } catch {
+            BattleAnnouncer.announceInvalidMove()
+        }
+    }
 
+    conductUserRunAway() {
+        this.user.runAway()
+        BattleAnnouncer.announceRunAway()
+        this.endBattle()
+    }
+
+    conductUserThrowPokeball() {
+        try {
+            this.user.throwPokeball()
+        } catch (err) {
+            BattleAnnouncer.announceThrowPokeballError()
+        }
+    }
+
+    conductUserHeal() {
+        try {
+            this.user.usePotion()
+        } catch (err) {
+            if (err.message === 'No potions left') {
+                BattleAnnouncer.announceZeroPotions()
+            }
+            if (err.message === 'Health already full') {
+                BattleAnnouncer.announceHealthFull(this.user.pokemon)
             }
         }
-
     }
+
+
+
+
+
 
     promptUserAction() {
         BattleAnnouncer.announceActionPrompt()
@@ -143,17 +138,7 @@ export default class BattleController {
         this.isRunning = false
     }
 
-    getUserMoveChoice() {
-        let moveListString = ''
-        for (let move of this.user.pokemon.moveSet) {
-            moveListString = moveListString + move.name + `, `
-        }
-        moveListString = moveListString.slice(0, -2)
-
-        let moveChoice = prompt(`What move would you like to use? Your Pokémon has the following moves available: ${moveListString}`)
-        return this.user.pickMove(moveChoice)
-    }
-
+ 
 }
 
 
