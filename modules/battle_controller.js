@@ -40,6 +40,8 @@ export default class BattleController {
 
         while (1) {
 
+            this.promptUserAction()
+
             let userCommand = this.promptUser()
 
             switch (userCommand.toLowerCase()) {
@@ -48,7 +50,7 @@ export default class BattleController {
                         this.user.useMove(this.cpu.pokemon, this.getUserMoveChoice())
                         return
                     } catch {
-                        console.log(`That isn't a valid move.`)
+                        BattleAnnouncer.announceInvalidMove()
                         continue
                     }
                     
@@ -88,8 +90,14 @@ export default class BattleController {
 
     }
 
-    promptUser() {
-        return prompt(`What would you like to do? Options are "Fight", "Run Away", "Heal", or "Use Pokeball"?`)
+    promptUserAction() {
+        BattleAnnouncer.announceActionPrompt()
+        //wait til user picks a move
+    }
+
+    promptUserMoveChoice() {
+        BattleAnnouncer.announceMovePrompt()
+        //wait til user picks a move
     }
 
     conductCpuTurn() {
