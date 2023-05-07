@@ -25,7 +25,7 @@ let uic = new UIController()
 
 uic.configureActionButtons(bc)
 uic.configureMoveButtons(bc)
-uic.configureBattleProgression()
+uic.configureBattleProgression(bc)
 /*
 uic.configureAnnouncementProgression(bc)
 */

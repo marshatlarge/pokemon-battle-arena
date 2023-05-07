@@ -116,6 +116,5 @@ export default class BattleController {
 
     endBattle() {
         BattleAnnouncer.announceBattleOver()
-        this.isRunning = false
     }
 }
