@@ -7,19 +7,19 @@ export default class BattleController {
         this.user = userTrainer
         this.cpu = cpuTrainer
      
-      
-    
         this.activeTrainer = userTrainer.pokemon.speed >= cpuTrainer.pokemon.speed ? this.user : this.cpu
     
         this.announcerBox = document.getElementById("announcerBox")
     }
 
     startBattle() {
-
         BattleAnnouncer.announceStartOfBattle()
         BattleAnnouncer.announceEnemyThrow(this.cpu.pokemon)
         BattleAnnouncer.announceUserThrow(this.user.pokemon)
 
+        if (this.cpu.pokemon.speed > this.user.pokemon.speed) {
+            this.conductCpuTurn()
+        }
     }
 
     getUserMoveChoice() {
@@ -104,6 +104,14 @@ export default class BattleController {
             BattleAnnouncer.announceEnemyHasFainted(this.cpu.pokemon)
             return true
         }
+    }
+
+    getCpuHealthPercentage() {
+        return this.cpu.pokemon.getPercentageHealth()
+    }
+
+    getUserHealthPercentage() {
+        return this.user.pokemon.getPercentageHealth()
     }
 
     endBattle() {
