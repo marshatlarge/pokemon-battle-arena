@@ -27,6 +27,8 @@ export default class UIController {
         this.potionCountBox = document.getElementById("potionCountBox")
         this.potionNumberLabel = document.getElementById("potionNumberLabel")
 
+        this.hpDisplay = document.getElementById("hpDisplay")
+
         
     }
 
@@ -50,7 +52,13 @@ export default class UIController {
             BattleAnnouncer.updateAnnouncerBoxText()
             this.potionNumberLabel.textContent = battleController.user.numPotions
             this.updateUserHealthBar(battleController) //this means that heal will really only be used by players if it is to work like this
-            
+            if(this.announcerBox.innerText == `Charizard was healed!`) {
+                if(battleController.getBattlerIsDefeated()) {
+                    battleController.endBattle()
+                } else {
+                    battleController.conductCpuTurn()
+                }
+            }
         })
 
         this.pokeballButton.addEventListener("mouseenter", () => {
@@ -82,6 +90,11 @@ export default class UIController {
                 if(this.announcerBox.textContent.startsWith(`${battleController.user.pokemon.name} used`)) {
                     this.updateEnemyHealthBar(battleController)
                     this.triggerEnemyAnimation()
+                    if(battleController.getBattlerIsDefeated()) {
+                        battleController.endBattle()
+                    } else {
+                        battleController.conductCpuTurn()
+                    }
                 }
             })
             
@@ -116,7 +129,6 @@ export default class UIController {
     updateUserHealthBar(battleController) {
         
         let userPercentage = battleController.getUserHealthPercentage()
-        console.log("UPDATING HEALTH BAR")
         let numPixelsUser = Math.ceil(userPercentage * this.userHealthContainer.clientWidth)
 
         if (userPercentage >= 0.6) {
@@ -135,6 +147,8 @@ export default class UIController {
         } else{
             this.userHealthBar.style.width = "10px"
         }   
+
+        this.updateHPDisplay(battleController)
     }
 
     updateEnemyHealthBar(battleController) {
@@ -174,6 +188,16 @@ export default class UIController {
         this.userImg.style.animation = "none"; // reset animation property
         void this.userImg.offsetWidth;
         this.userImg.style.animation="blink 0.2s linear 2";
+    }
+
+
+    updateHPDisplay(battleController) {
+        let currentHealth = Math.ceil(battleController.user.pokemon.health)
+        if(currentHealth < 0) {
+            currentHealth = 0
+        }
+        let maxHealth = battleController.user.pokemon.maxHealth
+        this.hpDisplay.innerText = `${currentHealth}/${maxHealth}`
     }
 }
 

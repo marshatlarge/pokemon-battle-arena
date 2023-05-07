@@ -30,11 +30,7 @@ export default class BattleController {
     conductUserUseMove(moveChoice) {
         try {
             this.user.useMove(this.cpu.pokemon, this.user.pickMove(moveChoice))
-            if(this.getBattlerIsDefeated()) {
-                this.endBattle()
-            } else {
-                this.conductCpuTurn()
-            }
+            
         } catch {
             BattleAnnouncer.announceInvalidMove()
         }
@@ -56,13 +52,8 @@ export default class BattleController {
 
     conductUserHeal() {
         try {
-            
+    
             this.user.usePotion()
-            if(this.getBattlerIsDefeated()) {
-                this.endBattle()
-            } else {
-                this.conductCpuTurn()
-            }
             
         } catch (err) {
             if (err.message === 'No potions left') {
@@ -95,7 +86,6 @@ export default class BattleController {
     getIsUserDefeated() {
         if(this.user.pokemon.hasFainted()) {
             BattleAnnouncer.announceWhitedOut(this.user.pokemon)
-            console.log(this.getUserHealthPercentage())
             return true
         }
     }
