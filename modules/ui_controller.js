@@ -11,7 +11,7 @@ export default class UIController {
         this.moveButtons = document.getElementsByClassName("moveOption") 
 
         this.announcerBox = document.getElementById("announcerBox")
-        this.configureAnnouncementProgression()
+        
  
     }
 
@@ -19,18 +19,22 @@ export default class UIController {
 
         this.fightButton.addEventListener("click", () => {
             battleController.getUserMoveChoice()
+            
         })
 
         this.runButton.addEventListener("click", () => {
             battleController.conductUserRunAway()
+            BattleAnnouncer.updateAnnouncerBoxText()
         })
 
         this.pokeballButton.addEventListener("click", () => {
             battleController.conductUserThrowPokeball()
+            BattleAnnouncer.updateAnnouncerBoxText()
         })
 
         this.healButton.addEventListener("click",() => {
             battleController.conductUserHeal()
+            BattleAnnouncer.updateAnnouncerBoxText()
         })
     }
 
@@ -39,16 +43,29 @@ export default class UIController {
             
             moveButton.addEventListener("click", () => {
                 battleController.conductUserUseMove(moveButton.textContent)
+                BattleAnnouncer.updateAnnouncerBoxText()
             })
             
         }
     }
 
-    configureAnnouncementProgression(){
+    configureBattleProgression(){ //can also update health of UI here depending on what exactly happened
         this.announcerBox.addEventListener("click", () => {
+            if (this.announcerBox.textContent == `The battle is over.`) {
+                console.log("EXIT TO HOME SCREEN")
+                //EXIT TO HOME SCREEN
+            }
             BattleAnnouncer.updateAnnouncerBoxText()
+            
         })
     }
 
+
+
+    //MAYBE MAKE A WHOLE CLASS TO DO THE HEALTH UI STUFF
+    updateHealthBar() {
+        
+
+    }
 }
 

@@ -25,10 +25,11 @@ let uic = new UIController()
 
 uic.configureActionButtons(bc)
 uic.configureMoveButtons(bc)
+uic.configureBattleProgression()
 /*
 uic.configureAnnouncementProgression(bc)
 */
 
-bc.runBattle()
+bc.startBattle()
 
 //BATTLE SYSTEM ISTELF IS COMPLETE EXCEPT FOR DAMAGE FORMULAS (WILL TWEAK AT END)

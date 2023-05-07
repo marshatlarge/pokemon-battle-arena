@@ -36,8 +36,7 @@ class BattleAnnouncer {
         let text = `${pokemon.name} used ${move.name}!`
         console.log(text)
         this.announcementsQueue.push(text)
-        this.updateAnnouncerBoxText()
-        
+
     }
 
     announceCrit() {
@@ -66,7 +65,7 @@ class BattleAnnouncer {
         let text = `The trainer throws out ${pokemon.name}!`
         console.log(text)
         this.announcementsQueue.push(text)
-        console.log(this.announcementsQueue.length)
+        
       
     }
 
@@ -74,7 +73,7 @@ class BattleAnnouncer {
         let text = `Go get 'em ${pokemon.name}!`
         console.log(text) 
         this.announcementsQueue.push(text)
-        console.log(this.announcementsQueue.length)
+        
        
     }
 
@@ -82,7 +81,7 @@ class BattleAnnouncer {
         let text = `${pokemon.name} was healed!`
         console.log(text)
         this.announcementsQueue.push(text)
-        this.updateAnnouncerBoxText()
+        
         
     }
 
@@ -90,7 +89,7 @@ class BattleAnnouncer {
         let text = `Oops! Unfortunately, you're all out of potions.`
         console.log(text)
         this.announcementsQueue.push(text)
-        this.updateAnnouncerBoxText()
+        
       
     }
 
@@ -98,7 +97,7 @@ class BattleAnnouncer {
         let text = `${pokemon.name} is already at full health.`
         console.log(text)
         this.announcementsQueue.push(text)
-        this.updateAnnouncerBoxText()
+        
     
     }
 
@@ -106,7 +105,7 @@ class BattleAnnouncer {
         let text = `Sorry, you can't catch an opposing trainer's Pokemon.`
         console.log(text)
         this.announcementsQueue.push(text)
-        this.updateAnnouncerBoxText()
+        
   
     }
 
@@ -114,7 +113,6 @@ class BattleAnnouncer {
         let text = `You ran away!`
         console.log(text)
         this.announcementsQueue.push(text)
-        this.updateAnnouncerBoxText()
        
     }
 
@@ -148,6 +146,20 @@ class BattleAnnouncer {
     }
 
 
+    announceEnemyHasFainted(pokemon) {
+        let text = `${pokemon.name} has fainted. You won!`
+        console.log(text)
+        this.announcementsQueue.push(text)
+    }
+
+    announceWhitedOut(pokemon) {
+        let text = `${pokemon.name} has fainted. You whited out...`
+        console.log(text)
+        this.announcementsQueue.push(text)
+    }
+
+
+
     updateAnnouncerBoxText() {
         
         if(this.announcementsQueue.length > 0) {
@@ -178,6 +190,7 @@ class BattleAnnouncer {
         return
 
     }
+
 
 
 

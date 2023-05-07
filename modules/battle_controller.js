@@ -6,50 +6,21 @@ export default class BattleController {
 
         this.user = userTrainer
         this.cpu = cpuTrainer
-        this.isRunning = true
-        this.isWaitingOnClick = true
-        this.isUserTurn = false
-
+     
+      
+    
         this.activeTrainer = userTrainer.pokemon.speed >= cpuTrainer.pokemon.speed ? this.user : this.cpu
-
-
-
-        
+    
+        this.announcerBox = document.getElementById("announcerBox")
     }
 
-    runBattle() {
+    startBattle() {
 
         BattleAnnouncer.announceStartOfBattle()
         BattleAnnouncer.announceEnemyThrow(this.cpu.pokemon)
         BattleAnnouncer.announceUserThrow(this.user.pokemon)
 
-        while (this.isRunning) {
-
-            if (this.activeTrainer == this.user) {
-                this.isUserTurn = true
-                this.conductUserTurn()
-                if(this.getBattlerIsDefeated) {
-                    this.endBattle()
-                }
-            }
-            if (this.activeTrainer == this.cpu) {
-                this.conductUserTurn()
-                if(this.getBattlerIsDefeated) {
-                    this.endBattle()
-                }
-            }
-    
-            this.changeTurns()
-
-        }
     }
-
-
-    WaitForUserToTakeTurn() { //could refactor this to add error handler methods passed the errors
-        while (isUserTurn) {
-        }
-    }
-
 
     getUserMoveChoice() {
         BattleAnnouncer.announceMovePrompt(this.user.pokemon)
@@ -59,7 +30,11 @@ export default class BattleController {
     conductUserUseMove(moveChoice) {
         try {
             this.user.useMove(this.cpu.pokemon, this.user.pickMove(moveChoice))
-            
+            if(this.getBattlerIsDefeated()) {
+                this.endBattle()
+            } else {
+                this.conductCpuTurn()
+            }
         } catch {
             BattleAnnouncer.announceInvalidMove()
         }
@@ -80,10 +55,14 @@ export default class BattleController {
     }
 
     conductUserHeal() {
-        
         try {
             
             this.user.usePotion()
+            if(this.getBattlerIsDefeated()) {
+                this.endBattle()
+            } else {
+                this.conductCpuTurn()
+            }
             
         } catch (err) {
             if (err.message === 'No potions left') {
@@ -93,29 +72,14 @@ export default class BattleController {
             if (err.message === 'Health already full') {
                 BattleAnnouncer.announceHealthFull(this.user.pokemon)
             }
-            console.log(err)
-        }
-    }
-
-
-    toggleIsWaitingOnClick() {
-        if (this.isWaitingOnClick == true) {
-            this.isWaitingOnClick = false
+            
         }
     }
 
     conductCpuTurn() {
         this.cpu.useMove(this.user.pokemon, this.cpu.pickMove('Tackle'))
-    }
-
-    changeTurns() {
-        if (this.activeTrainer === this.user) {
-            this.activeTrainer = this.cpu
-            return
-        }
-        if (this.activeTrainer === this.cpu) {
-            this.activeTrainer = this.user
-            return
+        if(this.getBattlerIsDefeated()) {
+            this.endBattle()
         }
     }
 
@@ -130,14 +94,14 @@ export default class BattleController {
 
     getIsUserDefeated() {
         if(this.user.pokemon.hasFainted()) {
-            //mayebe announce the user's pokemon fainted here
+            BattleAnnouncer.announceWhitedOut(this.user)
             return true
         }
     }
 
     getIsCpuDefeated() {
         if(this.cpu.pokemon.hasFainted()) {
-            //maybe announce the cpu's pokemon fainted here
+            BattleAnnouncer.announceEnemyHasFainted(this.cpu.pokemon)
             return true
         }
     }
@@ -146,6 +110,4 @@ export default class BattleController {
         BattleAnnouncer.announceBattleOver()
         this.isRunning = false
     }
-
-   
 }
