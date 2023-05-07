@@ -105,6 +105,9 @@ export default class UIController {
 
     configureBattleProgression(battleController){ //can also update health of UI here depending on what exactly happened
         this.gameboyShell.addEventListener("click", () => {
+            if(this.announcerBox.innerText == `What would you like Charizard to use?`) {
+                return
+            }
             this.progressBattle(battleController)
             if (this.announcerBox.innerText == `What would you like to do?`) {
                 this.triggerOptionsAnimation()
@@ -114,6 +117,9 @@ export default class UIController {
         })
 
         this.announcerBox.addEventListener("click", () => {
+            if(this.announcerBox.innerText == `What would you like Charizard to use?`) {
+                return
+            }
             this.progressBattle(battleController)
             if (this.announcerBox.innerText == `What would you like to do?`) {
                 this.triggerOptionsAnimation()
