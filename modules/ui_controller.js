@@ -106,13 +106,19 @@ export default class UIController {
     configureBattleProgression(battleController){ //can also update health of UI here depending on what exactly happened
         this.gameboyShell.addEventListener("click", () => {
             this.progressBattle(battleController)
-            this.triggerOptionsAnimation()
+            if (this.announcerBox.innerText == `What would you like to do?`) {
+                this.triggerOptionsAnimation()
+            }
+           
             
         })
 
         this.announcerBox.addEventListener("click", () => {
             this.progressBattle(battleController)
-            this.triggerOptionsAnimation()
+            if (this.announcerBox.innerText == `What would you like to do?`) {
+                this.triggerOptionsAnimation()
+            }
+            
         })
 
     }
@@ -196,7 +202,6 @@ export default class UIController {
     }
 
     triggerOptionsAnimation() {
-        console.log("ANIMATING")
         for (let option of this.actionOptions) {
             option.style.animation="none"
             void option.offsetWidth
