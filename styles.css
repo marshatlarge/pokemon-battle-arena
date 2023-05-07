@@ -217,6 +217,7 @@ img {
 }
 
 #actionOptionsList {
+   
     grid-template-rows: 30px 30px;
     grid-template-columns: 70px 70px;
     display: none;
@@ -280,6 +281,21 @@ button:hover {
     }
     100% {
         opacity: 0;
+    }
+}
+
+@keyframes textFlash {
+    0% {
+        color: black;
+    }
+    49% {
+        color: gray;
+    }
+    50% {
+        color: gray;
+    }
+    100% {
+        color: black;
     }
 }
 

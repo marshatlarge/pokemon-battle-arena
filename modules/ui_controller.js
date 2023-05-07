@@ -29,6 +29,8 @@ export default class UIController {
 
         this.hpDisplay = document.getElementById("hpDisplay")
 
+        this.actionOptions = document.getElementsByClassName("actionOption")
+
         
     }
 
@@ -104,10 +106,13 @@ export default class UIController {
     configureBattleProgression(battleController){ //can also update health of UI here depending on what exactly happened
         this.gameboyShell.addEventListener("click", () => {
             this.progressBattle(battleController)
+            this.triggerOptionsAnimation()
+            
         })
 
         this.announcerBox.addEventListener("click", () => {
             this.progressBattle(battleController)
+            this.triggerOptionsAnimation()
         })
 
     }
@@ -188,6 +193,15 @@ export default class UIController {
         this.userImg.style.animation = "none"; // reset animation property
         void this.userImg.offsetWidth;
         this.userImg.style.animation="blink 0.2s linear 2";
+    }
+
+    triggerOptionsAnimation() {
+        console.log("ANIMATING")
+        for (let option of this.actionOptions) {
+            option.style.animation="none"
+            void option.offsetWidth
+            option.style.animation="textFlash 0.5s ease 2"
+        }
     }
 
 
