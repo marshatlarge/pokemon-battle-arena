@@ -24,6 +24,8 @@ export default class UIController {
         this.enemyImg = document.getElementById("enemyPokemon")
 
         this.pokeballCountBox = document.getElementById("pokeballCountBox")
+        this.potionCountBox = document.getElementById("potionCountBox")
+        this.potionNumberLabel = document.getElementById("potionNumberLabel")
 
         
     }
@@ -46,6 +48,7 @@ export default class UIController {
         this.healButton.addEventListener("click",() => {
             battleController.conductUserHeal()
             BattleAnnouncer.updateAnnouncerBoxText()
+            this.potionNumberLabel.textContent = battleController.user.numPotions
             this.updateUserHealthBar(battleController) //this means that heal will really only be used by players if it is to work like this
             
         })
@@ -56,6 +59,14 @@ export default class UIController {
 
         this.pokeballButton.addEventListener("mouseleave", () => {
             this.pokeballCountBox.style.display = "none"
+        })
+
+        this.healButton.addEventListener("mouseenter", () => {
+            this.potionCountBox.style.display = "flex"
+        })
+
+        this.healButton.addEventListener("mouseleave", () => {
+            this.potionCountBox.style.display = "none"
         })
 
 

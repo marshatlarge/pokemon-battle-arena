@@ -284,14 +284,12 @@ button:hover {
 }
 
 
-#pokeballPicture {
+#pokeballPicture, #potionPicture {
     height: 20px;
     width: auto;
-   
-   
 }
 
-#pokeballCountBox {
+#pokeballCountBox, #potionCountBox {
 
     display: none;
     align-items: center;
@@ -310,3 +308,4 @@ button:hover {
     font-size: 12px;
     gap: 3px;
 }
+
