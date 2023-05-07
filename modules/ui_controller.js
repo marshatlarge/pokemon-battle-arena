@@ -22,6 +22,9 @@ export default class UIController {
 
         this.userImg = document.getElementById("charizard")
         this.enemyImg = document.getElementById("enemyPokemon")
+
+        this.pokeballCountBox = document.getElementById("pokeballCountBox")
+
         
     }
 
@@ -46,6 +49,17 @@ export default class UIController {
             this.updateUserHealthBar(battleController) //this means that heal will really only be used by players if it is to work like this
             
         })
+
+        this.pokeballButton.addEventListener("mouseenter", () => {
+            this.pokeballCountBox.style.display = "flex"
+        })
+
+        this.pokeballButton.addEventListener("mouseleave", () => {
+            this.pokeballCountBox.style.display = "none"
+        })
+
+
+
     }
 
     configureMoveButtons(battleController) {
