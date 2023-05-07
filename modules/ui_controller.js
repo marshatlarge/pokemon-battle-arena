@@ -17,6 +17,11 @@ export default class UIController {
 
         this.enemyHealthContainer = document.getElementById("enemyHealthContainer")
         this.enemyHealthBar = document.getElementById("enemyHealthBar")
+
+        this.gameboyShell = document.getElementById("gbaCasing")
+
+        this.userImg = document.getElementById("charizard")
+        this.enemyImg = document.getElementById("enemyPokemon")
         
     }
 
@@ -39,6 +44,7 @@ export default class UIController {
             battleController.conductUserHeal()
             BattleAnnouncer.updateAnnouncerBoxText()
             this.updateUserHealthBar(battleController) //this means that heal will really only be used by players if it is to work like this
+            
         })
     }
 
@@ -50,6 +56,7 @@ export default class UIController {
                 BattleAnnouncer.updateAnnouncerBoxText()
                 if(this.announcerBox.textContent.startsWith(`${battleController.user.pokemon.name} used`)) {
                     this.updateEnemyHealthBar(battleController)
+                    this.triggerEnemyAnimation()
                 }
             })
             
@@ -57,27 +64,34 @@ export default class UIController {
     }
 
     configureBattleProgression(battleController){ //can also update health of UI here depending on what exactly happened
-        this.announcerBox.addEventListener("click", () => {
-            if (this.announcerBox.textContent == `The battle is over.`) {
-                console.log("EXIT TO HOME SCREEN")
-                //EXIT TO HOME SCREEN
-            }
-            
-            BattleAnnouncer.updateAnnouncerBoxText()
-
-            if(this.announcerBox.textContent.startsWith(`${battleController.cpu.pokemon.name} used`)) {
-                this.updateUserHealthBar(battleController)
-            }
-
-            //also check to see if a pokemon was healed
-            
+        this.gameboyShell.addEventListener("click", () => {
+            this.progressBattle(battleController)
         })
+
+        this.announcerBox.addEventListener("click", () => {
+            this.progressBattle(battleController)
+        })
+
+    }
+
+    progressBattle(battleController) {
+        if (this.announcerBox.textContent == `The battle is over.`) {
+            console.log("EXIT TO HOME SCREEN")
+            //EXIT TO HOME SCREEN
+        }
+        BattleAnnouncer.updateAnnouncerBoxText()
+        if(this.announcerBox.textContent.startsWith(`${battleController.cpu.pokemon.name} used`)) {
+            this.updateUserHealthBar(battleController)
+            this.triggerUserAnimation()
+        }
+
     }
 
     //MAYBE MAKE A WHOLE CLASS TO DO THE HEALTH UI STUFF
     updateUserHealthBar(battleController) {
         
         let userPercentage = battleController.getUserHealthPercentage()
+        console.log("UPDATING HEALTH BAR")
         let numPixelsUser = Math.ceil(userPercentage * this.userHealthContainer.clientWidth)
 
         if (userPercentage >= 0.6) {
@@ -93,7 +107,7 @@ export default class UIController {
             this.userHealthBar.style.width = numPixelsUser + "px"
         } else {
             this.userHealthBar.style.width = "10px"
-        } 
+        }   
     }
 
     updateEnemyHealthBar(battleController) {
@@ -119,6 +133,20 @@ export default class UIController {
         else {
             this.enemyHealthBar.style.width = "10px"
         }
+
+        this.triggerEnemyAnimation()
+    }
+
+    triggerEnemyAnimation() {
+        this.enemyImg.style.animation = "none"; // reset animation property
+        void this.enemyImg.offsetWidth;
+        this.enemyImg.style.animation="blink 0.2s linear 2";
+    }
+
+    triggerUserAnimation() {
+        this.userImg.style.animation = "none"; // reset animation property
+        void this.userImg.offsetWidth;
+        this.userImg.style.animation="blink 0.2s linear 2";
     }
 }
 
