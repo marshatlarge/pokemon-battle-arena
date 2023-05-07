@@ -105,7 +105,9 @@ export default class UIController {
 
         if (numPixelsUser > 10) {  
             this.userHealthBar.style.width = numPixelsUser + "px"
-        } else {
+        } else if (numPixelsUser <= 0) {
+            this.userHealthBar.style.width = "0px"
+        } else{
             this.userHealthBar.style.width = "10px"
         }   
     }

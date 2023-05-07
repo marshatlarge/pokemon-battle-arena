@@ -94,7 +94,8 @@ export default class BattleController {
 
     getIsUserDefeated() {
         if(this.user.pokemon.hasFainted()) {
-            BattleAnnouncer.announceWhitedOut(this.user)
+            BattleAnnouncer.announceWhitedOut(this.user.pokemon)
+            console.log(this.getUserHealthPercentage())
             return true
         }
     }
