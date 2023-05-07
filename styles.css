@@ -250,7 +250,7 @@ img {
 
 
 
-button {
+.actionOption, .moveOption {
     width: fit-content;
     height: fit-content;
     display: flex;
@@ -263,10 +263,17 @@ button {
     font-size: 12px;
 }
 
-button:hover {
+.actionOption:hover {
     border: none;
     border-left: 4px double red;
     font-weight: bold;
+}
+
+.moveOption:hover{
+    border: none;
+    border-left: 4px double red;
+    font-weight: bold;
+
 }
 
 @keyframes blink {
@@ -325,3 +332,19 @@ button:hover {
     gap: 3px;
 }
 
+#backButton {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 5px;
+
+    background-color: #FFFFE1;
+    border: 2px solid #2E3F19;
+
+    z-index: 15;
+    display:none;
+}
+
+#backButton:hover{
+    background-color: #C9AE5A
+}

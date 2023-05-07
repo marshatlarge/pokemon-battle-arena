@@ -26,6 +26,7 @@ let uic = new UIController()
 uic.configureActionButtons(bc)
 uic.configureMoveButtons(bc)
 uic.configureBattleProgression(bc)
+uic.configureBackButton()
 /*
 uic.configureAnnouncementProgression(bc)
 */

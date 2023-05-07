@@ -30,13 +30,15 @@ export default class UIController {
         this.hpDisplay = document.getElementById("hpDisplay")
 
         this.actionOptions = document.getElementsByClassName("actionOption")
+        this.backButton = document.getElementById("backButton")
 
         
     }
 
     configureActionButtons(battleController) {
         this.fightButton.addEventListener("click", () => {
-            battleController.getUserMoveChoice()   
+            battleController.getUserMoveChoice()
+            this.backButton.style.display = "block"   
         })
 
         this.runButton.addEventListener("click", () => {
@@ -83,10 +85,18 @@ export default class UIController {
 
     }
 
+    configureBackButton() {
+        this.backButton.addEventListener("click", ()=> {
+            this.backButton.style.display = "none"
+            BattleAnnouncer.updateAnnouncerBoxText()
+        })
+    }
+
     configureMoveButtons(battleController) {
         for (let moveButton of this.moveButtons) {
             
             moveButton.addEventListener("click", () => {
+                this.backButton.style.display = "none" 
                 battleController.conductUserUseMove(moveButton.textContent)
                 BattleAnnouncer.updateAnnouncerBoxText()
                 if(this.announcerBox.textContent.startsWith(`${battleController.user.pokemon.name} used`)) {
