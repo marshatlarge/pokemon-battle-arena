@@ -6,7 +6,6 @@ class BattleUtils {
     }
 
     //Can tweak individual formulas for damage modifiers until finding something that works
-    //can get rid of console.logs later
     applyDamageModifiers(damage, target, move) {
 
         if (this.getIsImmune(target, move)) {
@@ -29,11 +28,9 @@ class BattleUtils {
             BattleAnnouncer.announceCrit()
             damage = this.applyCritical(damage)
         }
-
         return damage
     }
 
-    
     getIsSupereffective(target, move) {
         for (let weakness of target.weakness_list) {
             if (move.type === weakness) {
@@ -76,7 +73,7 @@ class BattleUtils {
         return damage * 0
     }
 
-    calculateIsCritical() { //could even pass this a 'luck' value for critical hits that are tied to the pokemon if I wanted. That way, you could buff/debuff crits.
+    calculateIsCritical() {
         if (Math.random() < 0.1) {
             return true //is critical 10% of the time
         }

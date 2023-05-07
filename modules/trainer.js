@@ -1,7 +1,7 @@
 import BattleUtils from "./battle_utils.js"
 import BattleAnnouncer from "./battle_announcer.js"
 
-export default class Trainer { //could also name this class "Trainer"
+export default class Trainer {
 
     constructor(pokemon) {
 
@@ -26,9 +26,7 @@ export default class Trainer { //could also name this class "Trainer"
         target.takeDamage(damage)
     }
 
-
     pickMove(string) {
-        //could format the move from the text content of the page for this
         return this.pokemon.getMove(string)
     }
 

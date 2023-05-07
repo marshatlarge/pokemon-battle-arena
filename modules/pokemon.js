@@ -16,12 +16,8 @@ class Pokemon {
         this.name = name
         this.gender = Math.random() < 0.5 ? 'Male' : 'Female' //reset this for ditto and most ghost pokemon
 
-        //build out battle systems using these last
         this.speed = speed
-
         
-        //this.status = 'Neutral' if I wanted to include status effect
-        //this.item = '' if I wanted to include items
         //Note, attack and defense calculations are fairly basic. There aren't any EVs or IVs or Sp. Attk or Sp. Defense
     }
 
@@ -48,6 +44,10 @@ class Pokemon {
         if (this.health <= 0) {
             return true
         }
+    }
+
+    getPercentageHealth() {
+        return this.health / this.maxHealth
     }
 
     consumePotion() { //going to need to flesh this out
