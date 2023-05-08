@@ -307,6 +307,21 @@ img {
     }
 }
 
+@keyframes screenColorSwitch {
+    0% {
+        background-color: black;
+    }
+    35% {
+        background-color: #9D391A;
+    }
+    70% {
+        background-color: #4F0C06;
+    }
+    100% {
+        background-color: #B94A1F;
+    }
+}
+
 
 #pokeballPicture, #potionPicture {
     height: 20px;
@@ -363,8 +378,9 @@ img {
     height: 150px;
     width: 322px;
     z-index: 1;
-    background-color: #99FCB4;
+    background-color: black;
     position: absolute;
+    animation: 8s infinite alternate screenColorSwitch;
 }
 
 #homeScreenOverlay {
