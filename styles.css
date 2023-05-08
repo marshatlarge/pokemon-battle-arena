@@ -307,6 +307,44 @@ img {
     }
 }
 
+@keyframes helpFlash {
+    0% {
+        color: #F7F359;
+    }
+    49% {
+        color: gray;
+    }
+    50% {
+        color: gray;
+    }
+    100% {
+        color: #F7F359;
+    }
+}
+
+@keyframes startFlash {
+    0% {
+        
+        text-shadow: -2px 0 #456AB3, 0 2px #456AB3, 2px 0 #456AB3, 0 -2px #456AB3;
+    }
+    49% {
+        
+        text-shadow: -2px 0 transparent, 0 2px transparent, 2px 0 transparent, 0 -2px transparent;
+        color: gray;
+        
+        
+    }
+    50% {
+        text-shadow: -2px 0 transparent, 0 2px transparent, 2px 0 transparent, 0 -2px transparent;
+        color: gray;
+        
+    }
+    100% {
+      
+        text-shadow: -2px 0 #456AB3, 0 2px #456AB3, 2px 0 #456AB3, 0 -2px #456AB3;
+    }
+}
+
 @keyframes screenColorSwitch {
     0% {
         background-color: black;
@@ -407,7 +445,7 @@ img {
     background: none;
     border: 4px double transparent;
 
-    color: #FFFFE1;
+   
     color: #F7F359;
     text-shadow: -2px 0 #456AB3, 0 2px #456AB3, 2px 0 #456AB3, 0 -2px #456AB3;
     font-weight: bold;
