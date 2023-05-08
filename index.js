@@ -1,7 +1,4 @@
-import pokemon from "./modules/pokemon.js"
-import Trainer from "./modules/trainer.js"
-import BattleConductor from "./modules/battle_conductor.js";
-import BattleUIController from "./modules/battle_ui_controller.js";
+
 import MenuUIController from "./modules/menu_ui_controller.js"
 
 //Need a module to do trainer and pokemon and move generation via pulling from the API
@@ -19,17 +16,6 @@ let muic = new MenuUIController()
 muic.configureButtons()
 
 
-let userTrainer = new Trainer(pokemon.charizard)
-let enemyTrainer = new Trainer(pokemon.blastoise)
 
-let bc = new BattleConductor(userTrainer, enemyTrainer)
-let buic = new BattleUIController()
-
-buic.configureActionButtons(bc)
-buic.configureMoveButtons(bc)
-buic.configureBattleProgression(bc)
-buic.configureBackButton()
-
-bc.startBattle()
 
 //BATTLE SYSTEM ISTELF IS COMPLETE EXCEPT FOR DAMAGE FORMULAS (WILL TWEAK AT END)

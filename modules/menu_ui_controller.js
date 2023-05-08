@@ -1,3 +1,5 @@
+import BattleLoader from "./battle_loader.js"
+
 export default class MenuUIController {
     constructor(){
 
@@ -10,7 +12,8 @@ export default class MenuUIController {
         this.startButton.addEventListener("click", ()=> {
             this.homeScreen.style.display = "none"
             //call function to remove event listener from gameboy needed to emphasize start button
-            //call function that loads the pokemon and starts up the whole battle -- maybe even add an animation or loading screen while waiting
+            //maybe even add an animation or loading screen while waiting
+            BattleLoader.loadBattle()
         })
     }
 
