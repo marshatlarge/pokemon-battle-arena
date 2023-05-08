@@ -34,8 +34,7 @@ class Pokemon {
     }
 
     generateSpeed() {
-        //return a random value between an interval for speed stat
-
+        Math.ceil(Math.random() * 50)
     }
 
 
