@@ -355,9 +355,50 @@ img {
     z-index: 32;
     background-color: black;
     height: 228px;
+
+    
+}
+
+#homeScreenUnderlay {
+    height: 150px;
+    width: 322px;
+    z-index: 1;
+    background-color: #99FCB4;
+    position: absolute;
 }
 
 #homeScreenOverlay {
     width:322px;
     height:228px;
+    position: relative;
+    z-index: 2;
+
+    
+}
+
+#startButton {
+    position: absolute;
+    bottom: 35px;
+    left: 55px;
+    z-index: 3;
+
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+
+    background: none;
+    border: 4px double transparent;
+
+    color: #FFFFE1;
+    color: #F7F359;
+    text-shadow: -2px 0 #456AB3, 0 2px #456AB3, 2px 0 #456AB3, 0 -2px #456AB3;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#startButton:hover{
+    border-bottom: 4px double #8C2A13;
+    font-size: 15px;
 }
