@@ -415,6 +415,34 @@ img {
 }
 
 #startButton:hover{
-    border-bottom: 4px double #8C2A13;
+    border-bottom: 4px double #456AB3;
     font-size: 15px;
+}
+
+#infoButton {
+    position: absolute;
+    top: 17px;
+    right: 6px;
+    z-index: 3;
+
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+
+    background: none;
+    
+
+    border: 2px solid #8C2A13;
+    color: #F7F359;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#infoButton:hover{
+    
+    background-color: #456AB3;
+    
+    
 }
