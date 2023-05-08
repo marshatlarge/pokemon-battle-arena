@@ -26,11 +26,11 @@ class Pokemon {
     }
 
     generateAttack() {
-        //Return a random value between an interval for attack stat
+        Math.ceil(Math.random * 10 + 25)
     }
 
     generateDefense() {
-        //Return a random value between an interval for defense stat
+        Math.ceil(Math.random * 10 + 25)
     }
 
     generateSpeed() {
