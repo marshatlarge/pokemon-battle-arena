@@ -8,7 +8,7 @@ body {
     justify-content: center;
 }
 
-img {
+#gbaCasing {
     width: 400px;
     height: auto;
 }
@@ -18,12 +18,14 @@ img {
     width: fit-content;
     background-color: red;
     position: relative;
+    
   
 }
 
 #screenBackground {
     width:322px;
     height:228px;
+
     position: absolute;
     
     background-color: black;
