@@ -14,7 +14,7 @@ class Pokemon {
         this.name = name
         this.gender = Math.random() < 0.5 ? 'Male' : 'Female' //reset this for ditto and most ghost pokemon
 
-        this.speed = generateSpeed()
+        this.speed = this.generateSpeed()
         
         //Note, attack and defense calculations are fairly basic. There aren't any EVs or IVs or Sp. Attk or Sp. Defense
     }
@@ -22,19 +22,19 @@ class Pokemon {
 
 
     generateHealth() {
-        Math.ceil(Math.random() * 65 + 350)
+        return Math.ceil(Math.random() * 65 + 350)
     }
 
     generateAttack() {
-        Math.ceil(Math.random * 10 + 25)
+        return Math.ceil(Math.random() * 10 + 25)
     }
 
     generateDefense() {
-        Math.ceil(Math.random * 10 + 25)
+        return Math.ceil(Math.random() * 10 + 25)
     }
 
     generateSpeed() {
-        Math.ceil(Math.random() * 50)
+        return Math.ceil(Math.random() * 50)
     }
 
 
