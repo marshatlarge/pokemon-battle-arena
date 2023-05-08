@@ -1,7 +1,7 @@
 import pokemon from "./modules/pokemon.js"
 import Trainer from "./modules/trainer.js"
 import BattleController from "./modules/battle_controller.js";
-import UIController from "./modules/ui_controller.js";
+import BattleUIController from "./modules/battle_ui_controller.js";
 
 //Need a module to do trainer and pokemon and move generation via pulling from the API
 //Also, randomly assign a level and stats to the enemy trainer's pokemon
@@ -16,21 +16,18 @@ import UIController from "./modules/ui_controller.js";
 
 
 
-
+/*
 let userTrainer = new Trainer(pokemon.charizard)
 let enemyTrainer = new Trainer(pokemon.blastoise)
 
 let bc = new BattleController(userTrainer, enemyTrainer)
-let uic = new UIController()
+let buic = new BattleUIController()
 
-uic.configureActionButtons(bc)
-uic.configureMoveButtons(bc)
-uic.configureBattleProgression(bc)
-uic.configureBackButton()
-/*
-uic.configureAnnouncementProgression(bc)
-*/
+buic.configureActionButtons(bc)
+buic.configureMoveButtons(bc)
+buic.configureBattleProgression(bc)
+buic.configureBackButton()
 
 bc.startBattle()
-
+*/
 //BATTLE SYSTEM ISTELF IS COMPLETE EXCEPT FOR DAMAGE FORMULAS (WILL TWEAK AT END)

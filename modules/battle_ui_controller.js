@@ -1,6 +1,6 @@
 import BattleAnnouncer from "./battle_announcer.js"
 
-export default class UIController {
+export default class BattleUIController {
 
     constructor() {
 
@@ -221,7 +221,7 @@ export default class UIController {
         for (let option of this.actionOptions) {
             option.style.animation="none"
             void option.offsetWidth
-            option.style.animation="textFlash 0.5s ease 2"
+            option.style.animation="textFlash 0.3s ease 2"
         }
     }
 
