@@ -1,25 +1,44 @@
 class Pokemon {
 
-    //luck and accuracy isn't built into the pokemon itself
-    //potions are the only way to heal. there are no healing moves
-    constructor(moveSet, health, attack, defense, speed, weaknesses, immunities, resistances, name) {
+    constructor(name, moveSet, weaknesses, immunities, resistances) {
         
-        //basics (build out battle systems using these first)
+        //CAN ALSO RANDOMLY SET A LEVEL FOR THE ENEMY POKEMON LATER
         this.moveSet = moveSet
-        this.health = health
-        this.maxHealth = health
-        this.attack = attack
-        this.defense = defense
+        this.maxHealth = this.generateHealth()
+        this.health = this.maxHealth
+        this.attack = this.generateAttack()
+        this.defense = this.generateDefense()
         this.weakness_list = weaknesses
         this.immunities_list = immunities
         this.resistance_list = resistances
         this.name = name
         this.gender = Math.random() < 0.5 ? 'Male' : 'Female' //reset this for ditto and most ghost pokemon
 
-        this.speed = speed
+        this.speed = generateSpeed()
         
         //Note, attack and defense calculations are fairly basic. There aren't any EVs or IVs or Sp. Attk or Sp. Defense
     }
+
+
+
+    generateHealth() {
+        Math.ceil(Math.random() * 65 + 350)
+    }
+
+    generateAttack() {
+        //Return a random value between an interval for attack stat
+    }
+
+    generateDefense() {
+        //Return a random value between an interval for defense stat
+    }
+
+    generateSpeed() {
+        //return a random value between an interval for speed stat
+
+    }
+
+
 
     //base this on the pokemon's defensive stat
     takeDamage(damage) { //I can redo the formulas for taking and dealing damage later. Just want to make the system work first.
