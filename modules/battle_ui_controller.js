@@ -141,8 +141,8 @@ export default class BattleUIController {
 
     progressBattle(battleConductor) {
         if (this.announcerBox.textContent == `The battle is over.`) {
-            console.log("EXIT TO HOME SCREEN")
-            //EXIT TO HOME SCREEN
+            location.reload()
+            return
         }
         BattleAnnouncer.updateAnnouncerBoxText()
         if(this.announcerBox.textContent.startsWith(`${battleConductor.cpu.pokemon.name} used`)) {
@@ -221,7 +221,7 @@ export default class BattleUIController {
         for (let option of this.actionOptions) {
             option.style.animation="none"
             void option.offsetWidth
-            option.style.animation="textFlash 0.3s ease 2"
+            option.style.animation="textFlash 0.3s linear 1"
         }
     }
 

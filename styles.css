@@ -30,9 +30,7 @@ img {
     top: 54px;
     left: 38px;
 
-    
     background-image: repeating-linear-gradient(#F8FDFD, #F7F7F7 5%);
-      
 }
 
 #textBoxContainer {
@@ -54,8 +52,6 @@ img {
 }
 
 .mustardBG {
-    
-   
     width: 312px;
     height: 65px;
     background-color: #C9AE5A;
@@ -64,8 +60,6 @@ img {
 
     justify-content: center;
     align-items: center;
-
- 
 }
 
 #announcerBox {
@@ -76,15 +70,13 @@ img {
     font-size: 14px;
 
     height: 50px;
-    color: white;
-   
+    color: white;  
 }
 
 #selectionBox {
     background-color: #FFFFE1;
     display: flex;
-    justify-content: center;
-    
+    justify-content: center; 
 }
 
 
@@ -135,13 +127,9 @@ img {
     background-color: #FFFFE1;
     border: 3px solid #2E3F19;
     border-radius: 5px;
-
-    
+ 
     width: 135px;
-
-    
     padding: 2px;
-
     gap: 0px;
 }
 
@@ -149,7 +137,6 @@ img {
     right: 10px;
     bottom: 76px;
     height: 45px;
-
 }
 
 #enemyInfoDisplayContainer {
@@ -165,7 +152,6 @@ img {
     display: flex;
     margin-right: 3px;
     margin-left: 3px;
-    
 }
 
 .levelDisplay {
@@ -196,9 +182,7 @@ img {
     border-radius: 10px;
     width: 100px;
     border: 1px solid #ECEEEC;
-    margin-left: 3px;
-    
-    
+    margin-left: 3px; 
 }
 
 .healthBar {
@@ -207,7 +191,6 @@ img {
     border-radius: 5px;
     width: 100px;
     margin-right: auto;
-
 }
 
 .lastRow {
@@ -243,13 +226,7 @@ img {
 
 
     margin-left: 15px;
-
-    
-    
-
 }
-
-
 
 .actionOption, .moveOption {
     width: fit-content;
@@ -330,9 +307,7 @@ img {
     49% {
         
         text-shadow: -2px 0 transparent, 0 2px transparent, 2px 0 transparent, 0 -2px transparent;
-        color: gray;
-        
-        
+        color: gray;   
     }
     50% {
         text-shadow: -2px 0 transparent, 0 2px transparent, 2px 0 transparent, 0 -2px transparent;
@@ -408,7 +383,6 @@ img {
     z-index: 32;
     background-color: black;
     height: 228px;
-
     
 }
 
@@ -427,7 +401,6 @@ img {
     position: relative;
     z-index: 2;
 
-    
 }
 
 #startButton {
@@ -444,7 +417,6 @@ img {
 
     background: none;
     border: 4px double transparent;
-
    
     color: #F7F359;
     text-shadow: -2px 0 #456AB3, 0 2px #456AB3, 2px 0 #456AB3, 0 -2px #456AB3;
@@ -479,8 +451,5 @@ img {
 }
 
 #infoButton:hover{
-    
-    background-color: #456AB3;
-    
-    
+    background-color: #456AB3; 
 }
