@@ -2,6 +2,7 @@ import pokemon from "./modules/pokemon.js"
 import Trainer from "./modules/trainer.js"
 import BattleController from "./modules/battle_controller.js";
 import BattleUIController from "./modules/battle_ui_controller.js";
+import MenuUIController from "./modules/menu_ui_controller.js"
 
 //Need a module to do trainer and pokemon and move generation via pulling from the API
 //Also, randomly assign a level and stats to the enemy trainer's pokemon
@@ -14,7 +15,8 @@ import BattleUIController from "./modules/battle_ui_controller.js";
 
 
 
-
+let muic = new MenuUIController()
+muic.configureButtons()
 
 /*
 let userTrainer = new Trainer(pokemon.charizard)
