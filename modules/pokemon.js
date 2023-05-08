@@ -123,7 +123,7 @@ let resistanceList2 = ['Water', 'Fire']
 let weaknessList2 = ['Electric', 'Grass']
 let immunitiesList2 = ['']
 
-let charizard = new Pokemon(moveList1,120,10,20,100, weaknessList1, immunitiesList1,resistanceList1,'Charizard')
-let blastoise = new Pokemon(moveList2,120,10,30,1000,weaknessList2,immunitiesList2, resistanceList2,'Blastoise')
+let charizard = new Pokemon('Charizard', moveList1, weaknessList1, immunitiesList1,resistanceList1)
+let blastoise = new Pokemon('Blastoise', moveList2,weaknessList2,immunitiesList2, resistanceList2)
 
 export default {charizard, blastoise}
