@@ -18,6 +18,7 @@ img {
     width: fit-content;
     background-color: red;
     position: relative;
+  
 }
 
 #screenBackground {
@@ -347,4 +348,16 @@ img {
 
 #backButton:hover{
     background-color: #C9AE5A
+}
+
+#homeScreen {
+    position: absolute;
+    z-index: 32;
+    background-color: black;
+    height: 228px;
+}
+
+#homeScreenOverlay {
+    width:322px;
+    height:228px;
 }
