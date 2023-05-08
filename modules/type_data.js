@@ -71,14 +71,248 @@ class TypeData {
             "steel":["fire","fighting","ground"]
         }
     }
-
-
-
-
-
 }
 
 
+let moveList = {
+    "normal": [
+        {
+            "name":"Tackle",
+            "power":40,
+            "accuracy":100
+        },
+        {
+            "name":"Mega Kick",
+            "power":120,
+            "accuracy":75
+        },
+        {
+            "name":"Slash",
+            "power":70,
+            "accuracy":100
+        },
+        {
+            "name":"Scratch",
+            "power":40,
+            "accuracy":100
+        },
+    ],
+
+    "fire": [
+        {
+            "name":"Flamethrower",
+            "power":90,
+            "accuracy":100
+        },
+        {
+            "name":"Fire Punch",
+            "power":75,
+            "accuracy":100
+        },
+        {
+            "name":"Fire Blast",
+            "power":110,
+            "accuracy":85
+        }
+    ],
+
+    "water": [
+        {
+            "name":"Bubble",
+            "power":40,
+            "accuracy":100
+        },
+        {
+            "name":"Surf",
+            "power":90,
+            "accuracy":100
+        },
+        {
+            "name":"Waterfall",
+            "power":80,
+            "accuracy":100
+        }
+    ],
+
+    "grass": [
+        {
+            "name":"Razor Leaf",
+            "power":55,
+            "accuracy":95
+        },
+        {
+            "name":"Vine Whip",
+            "power":45,
+            "accuracy":100
+        }
+    ],
+
+    "electric": [
+        {
+            "name":"Thunder",
+            "power":110,
+            "accuracy":70
+        },
+        {
+            "name":"Thunder Punch",
+            "power":75,
+            "accuracy":100
+        },
+        {
+            "name":"Thunderbolt",
+            "power":90,
+            "accuracy":100
+        }
+    ],
+
+    "ice": [
+        {
+            "name":"Ice Beam",
+            "power":90,
+            "accuracy":100
+        },
+        {
+            "name":"Ice Punch",
+            "power":75,
+            "accuracy":100
+        },
+        {
+            "name":"Blizzard",
+            "power":110,
+            "accuracy":70
+        }
+    ],
+
+    "fighting": [
+        {
+            "name":"Karate Chop",
+            "power":50,
+            "accuracy":100
+        },
+        {
+            "name":"Low Kick",
+            "power":70,
+            "accuracy":100
+        }
+    ],
+
+    "poison": [
+        {
+            "name":"Sludge",
+            "power":65,
+            "accuracy":100
+        },
+        {
+            "name":"Acid",
+            "power":40,
+            "accuracy":100
+        }
+    ],
+
+    "ground": [
+        {
+            "name":"Earthquake",
+            "power":100,
+            "accuracy":100
+        },
+        {
+            "name":"Bone Club",
+            "power":65,
+            "accuracy":85
+        },
+        {
+            "name":"Bonemerang",
+            "power":50,
+            "accuracy":90
+        }
+    ],
+
+    "flying": [
+        {
+            "name":"Drill Peck",
+            "power":80,
+            "accuracy":100
+        },
+        {
+            "name":"Wing Attack",
+            "power":60,
+            "accuracy":100
+        },
+        {
+            "name":"Gust",
+            "power":40,
+            "accuracy":100
+        }
+    ],
+
+    "psychic": [
+        {
+            "name":"Confusion",
+            "power":50,
+            "accuracy":100
+        },
+        {
+            "name":"Psybeam",
+            "power":65,
+            "accuracy":100
+        },
+        {
+            "name":"Psychic",
+            "power":90,
+            "accuracy":100
+        }
+    ],
+
+    "bug": [
+        {
+            "name":"Pin Missle",
+            "power":70,
+            "accuracy":95
+        },
+        {
+            "name":"Twin Needle",
+            "power":50,
+            "accuracy":100
+        }
+    ],
+
+    "rock": [
+        {
+            "name":"Rock Slide",
+            "power":75,
+            "accuracy":90
+        },
+        {
+            "name":"Rock Throw",
+            "power":50,
+            "accuracy":90
+        }
+    ],
+
+    "ghost": [
+        {
+            "name":"Lick",
+            "power":30,
+            "accuracy":100
+        }
+    ],
+
+    "dragon": [
+        {
+            "name":"Dragon Rage",
+            "power":80,
+            "accuracy":100
+        }
+    ],
+
+    "dark": [
+        {
+            "name":"Bite",
+            "power":60,
+            "accuracy":100
+        }
+    ]  
+}
 
 
 
