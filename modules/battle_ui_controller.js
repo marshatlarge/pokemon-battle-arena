@@ -35,32 +35,32 @@ export default class BattleUIController {
         
     }
 
-    configureActionButtons(battleController) {
+    configureActionButtons(battleConductor) {
         this.fightButton.addEventListener("click", () => {
-            battleController.getUserMoveChoice()
+            battleConductor.getUserMoveChoice()
             this.backButton.style.display = "block"   
         })
 
         this.runButton.addEventListener("click", () => {
-            battleController.conductUserRunAway()
+            battleConductor.conductUserRunAway()
             BattleAnnouncer.updateAnnouncerBoxText()
         })
 
         this.pokeballButton.addEventListener("click", () => {
-            battleController.conductUserThrowPokeball()
+            battleConductor.conductUserThrowPokeball()
             BattleAnnouncer.updateAnnouncerBoxText()
         })
 
         this.healButton.addEventListener("click",() => {
-            battleController.conductUserHeal()
+            battleConductor.conductUserHeal()
             BattleAnnouncer.updateAnnouncerBoxText()
-            this.potionNumberLabel.textContent = battleController.user.numPotions
-            this.updateUserHealthBar(battleController) //this means that heal will really only be used by players if it is to work like this
+            this.potionNumberLabel.textContent = battleConductor.user.numPotions
+            this.updateUserHealthBar(battleConductor) //this means that heal will really only be used by players if it is to work like this
             if(this.announcerBox.innerText == `Charizard was healed!`) {
-                if(battleController.getBattlerIsDefeated()) {
-                    battleController.endBattle()
+                if(battleConductor.getBattlerIsDefeated()) {
+                    battleConductor.endBattle()
                 } else {
-                    battleController.conductCpuTurn()
+                    battleConductor.conductCpuTurn()
                 }
             }
         })
@@ -92,20 +92,20 @@ export default class BattleUIController {
         })
     }
 
-    configureMoveButtons(battleController) {
+    configureMoveButtons(battleConductor) {
         for (let moveButton of this.moveButtons) {
             
             moveButton.addEventListener("click", () => {
                 this.backButton.style.display = "none" 
-                battleController.conductUserUseMove(moveButton.textContent)
+                battleConductor.conductUserUseMove(moveButton.textContent)
                 BattleAnnouncer.updateAnnouncerBoxText()
-                if(this.announcerBox.textContent.startsWith(`${battleController.user.pokemon.name} used`)) {
-                    this.updateEnemyHealthBar(battleController)
+                if(this.announcerBox.textContent.startsWith(`${battleConductor.user.pokemon.name} used`)) {
+                    this.updateEnemyHealthBar(battleConductor)
                     this.triggerEnemyAnimation()
-                    if(battleController.getBattlerIsDefeated()) {
-                        battleController.endBattle()
+                    if(battleConductor.getBattlerIsDefeated()) {
+                        battleConductor.endBattle()
                     } else {
-                        battleController.conductCpuTurn()
+                        battleConductor.conductCpuTurn()
                     }
                 }
             })
@@ -113,12 +113,12 @@ export default class BattleUIController {
         }
     }
 
-    configureBattleProgression(battleController){ //can also update health of UI here depending on what exactly happened
+    configureBattleProgression(battleConductor){ //can also update health of UI here depending on what exactly happened
         this.gameboyShell.addEventListener("click", () => {
             if(this.announcerBox.innerText == `What would you like Charizard to use?`) {
                 return
             }
-            this.progressBattle(battleController)
+            this.progressBattle(battleConductor)
             if (this.announcerBox.innerText == `What would you like to do?`) {
                 this.triggerOptionsAnimation()
             }
@@ -130,7 +130,7 @@ export default class BattleUIController {
             if(this.announcerBox.innerText == `What would you like Charizard to use?`) {
                 return
             }
-            this.progressBattle(battleController)
+            this.progressBattle(battleConductor)
             if (this.announcerBox.innerText == `What would you like to do?`) {
                 this.triggerOptionsAnimation()
             }
@@ -139,23 +139,23 @@ export default class BattleUIController {
 
     }
 
-    progressBattle(battleController) {
+    progressBattle(battleConductor) {
         if (this.announcerBox.textContent == `The battle is over.`) {
             console.log("EXIT TO HOME SCREEN")
             //EXIT TO HOME SCREEN
         }
         BattleAnnouncer.updateAnnouncerBoxText()
-        if(this.announcerBox.textContent.startsWith(`${battleController.cpu.pokemon.name} used`)) {
-            this.updateUserHealthBar(battleController)
+        if(this.announcerBox.textContent.startsWith(`${battleConductor.cpu.pokemon.name} used`)) {
+            this.updateUserHealthBar(battleConductor)
             this.triggerUserAnimation()
         }
 
     }
 
     //MAYBE MAKE A WHOLE CLASS TO DO THE HEALTH UI STUFF
-    updateUserHealthBar(battleController) {
+    updateUserHealthBar(battleConductor) {
         
-        let userPercentage = battleController.getUserHealthPercentage()
+        let userPercentage = battleConductor.getUserHealthPercentage()
         let numPixelsUser = Math.ceil(userPercentage * this.userHealthContainer.clientWidth)
 
         if (userPercentage >= 0.6) {
@@ -175,11 +175,11 @@ export default class BattleUIController {
             this.userHealthBar.style.width = "10px"
         }   
 
-        this.updateHPDisplay(battleController)
+        this.updateHPDisplay(battleConductor)
     }
 
-    updateEnemyHealthBar(battleController) {
-        let cpuPercentage = battleController.getCpuHealthPercentage()
+    updateEnemyHealthBar(battleConductor) {
+        let cpuPercentage = battleConductor.getCpuHealthPercentage()
         let numPixelsCpu = Math.ceil(cpuPercentage * this.enemyHealthContainer.clientWidth)
 
         //CHANGE COLOR OF BAR
@@ -226,12 +226,12 @@ export default class BattleUIController {
     }
 
 
-    updateHPDisplay(battleController) {
-        let currentHealth = Math.ceil(battleController.user.pokemon.health)
+    updateHPDisplay(battleConductor) {
+        let currentHealth = Math.ceil(battleConductor.user.pokemon.health)
         if(currentHealth < 0) {
             currentHealth = 0
         }
-        let maxHealth = battleController.user.pokemon.maxHealth
+        let maxHealth = battleConductor.user.pokemon.maxHealth
         this.hpDisplay.innerText = `${currentHealth}/${maxHealth}`
     }
 }

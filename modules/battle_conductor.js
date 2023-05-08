@@ -1,6 +1,6 @@
 import BattleAnnouncer from "./battle_announcer.js"
 
-export default class BattleController {
+export default class BattleConductor {
 
     constructor(userTrainer, cpuTrainer) {
 
