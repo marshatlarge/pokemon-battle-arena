@@ -25,6 +25,7 @@ export default class MenuUIController {
         this.startButton.addEventListener("click", ()=> {
             this.homeScreen.style.display = "none"
             //Add a loading screen while waiting for the start fo the battle to load
+            //I can call load battle here with the battle loader but call it asyncronously and immediately go to a waiting screen while waiting for it
             BattleLoader.loadBattle()
         })
     }

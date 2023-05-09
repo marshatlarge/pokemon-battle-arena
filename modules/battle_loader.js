@@ -6,10 +6,12 @@ import Trainer from "./trainer.js"
 class BattleLoader {
 
     constructor() {
+        this.enemyPokemonImg = document.getElementById("enemyPokemon")
+        this.enemyNameDisplay = document.getElementById("enemyNameDisplay")
 
     }
 
-    loadBattle() {
+    async loadBattle() {
 
         let userTrainer = this.makeUserTrainer()
         let enemyTrainer = this.makeEnemyTrainer()
@@ -22,6 +24,8 @@ class BattleLoader {
         buic.configureBattleProgression(bc)
         buic.configureBackButton()
 
+        await this.getRandomPokemon()
+
         bc.startBattle()
     }
 
@@ -31,6 +35,56 @@ class BattleLoader {
 
     makeEnemyTrainer() {
         return new Trainer(pokemon.blastoise)
+    }
+
+    //sprites - front default will be the link to the sprite
+    async getRandomPokemon(){
+        console.log("hello")
+        let pokemonNum = Math.floor(Math.random() * 151 + 1)
+        let url = `https://pokeapi.co/api/v2/pokemon/${pokemonNum}/`
+        let response = await fetch(url)
+        const pokemonJsonData = await response.json();
+        console.log(pokemonJsonData);
+
+        //get and capitalize name
+        let nameStr = pokemonJsonData.name
+        const pokeName = nameStr.charAt(0).toUpperCase() + nameStr.slice(1);
+
+        //get link to sprite image
+        let pokeSpriteUrl = pokemonJsonData.sprites.front_default
+
+        //get the type of the pokemon
+        let pokeTypes = []
+        if (pokemonJsonData.past_types.length > 0) {
+            console.log(gen) 
+            for (let type of pokemonJsonData.past_types[0].types) {
+                pokeTypes.push(type.name)
+            }   
+        } else {
+            for (let packet of pokemonJsonData.types) {
+                console.log(packet.type.name)
+                pokeTypes.push(packet.type.name)
+            }
+        }
+
+        //get the list of moves it can learn
+        let pokeMoves = []
+        for (let movePacket of pokemonJsonData.moves) {    
+            pokeMoves.push(movePacket.move.name.replace(/-/g, ' '))
+        }
+
+        console.log("THIS IS THE RANDOM POKEMON")
+        console.log(pokeName)
+        console.log(pokeTypes)
+        console.log(pokeMoves)
+
+        //can move this to separate fucntion
+        this.enemyPokemonImg.src = pokeSpriteUrl
+        this.enemyNameDisplay.innerText = pokeName
+
+        
+        return {pokeName, pokeTypes, pokeMoves, pokeSpriteUrl}
+
     }
 
 }
