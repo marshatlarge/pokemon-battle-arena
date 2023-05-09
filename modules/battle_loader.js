@@ -34,7 +34,8 @@ class BattleLoader {
     makeUserTrainer() { //FIX THIS
 
         let moveList = ["flamethrower", "tackle", "slash", "fire punch"]
-        let charizard = new Pokemon('Charizard', moveList, [""], [""], [""])
+        let typeList = ["fire","flying"]
+        let charizard = new Pokemon('Charizard', moveList, typeList)
 
         return new Trainer(charizard)
     }
@@ -42,7 +43,7 @@ class BattleLoader {
     async makeEnemyTrainer() {
 
         let enemyPokeData = await this.getRandomPokemon()
-        let enemyPoke = new Pokemon(enemyPokeData.pokeName, enemyPokeData.pokeMoves, [""], [""], [""])
+        let enemyPoke = new Pokemon(enemyPokeData.pokeName, enemyPokeData.pokeMoves, enemyPokeData.pokeTypes)
 
         return new Trainer(enemyPoke)
     }

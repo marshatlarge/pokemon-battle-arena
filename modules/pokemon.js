@@ -2,7 +2,7 @@ import GameData from "./game_data.js"
 
 export default class Pokemon {
 
-    constructor(name, learnableMoves, weaknesses, immunities, resistances) {
+    constructor(name, learnableMoves, typeList) {
         
         //CAN ALSO RANDOMLY SET A LEVEL FOR THE ENEMY POKEMON LATER
         this.moveSet = this.buildMoveSet(learnableMoves)
@@ -10,9 +10,9 @@ export default class Pokemon {
         this.health = this.maxHealth
         this.attack = this.generateAttack()
         this.defense = this.generateDefense()
-        this.weakness_list = weaknesses
-        this.immunities_list = immunities
-        this.resistance_list = resistances
+        this.weakness_list = this.buildWeaknessList(typeList)
+        this.immunities_list = this.buildImmunityList(typeList)
+        this.resistance_list = this.buildResistanceList(typeList)
         this.name = name
         this.gender = Math.random() < 0.5 ? 'Male' : 'Female' //reset this for ditto and most ghost pokemon
 
@@ -39,6 +39,58 @@ export default class Pokemon {
         return Math.ceil(Math.random() * 50)
     }
 
+    buildWeaknessList(typeList) {
+        let weaknessList = []
+        for(let type of typeList) {
+            for (let t in GameData.typeWeaknesses) {
+                if (type == t) {
+                    for (let value of GameData.typeWeaknesses[t]) {
+                        weaknessList.push(value)
+
+                    }
+                }
+            }
+        }
+        console.log(weaknessList)
+        return weaknessList
+    }
+
+    buildImmunityList(typeList) {
+        let immunityList = []
+        for(let type of typeList) {
+            for (let t in GameData.typeImmunities) {
+                if (type == t) {
+                    for (let value of GameData.typeImmunities[t]) {
+                        immunityList.push(value)
+
+                    }
+                }
+            }
+        }
+        console.log(immunityList)
+        return immunityList
+
+    }
+
+    buildResistanceList(typeList) {
+        let resistanceList = []
+        for(let type of typeList) {
+            for (let t in GameData.typeResistances) {
+                if (type == t) {
+                    for (let value of GameData.typeResistances[t]) {
+                        resistanceList.push(value)
+
+                    }
+                }
+            }
+        }
+        console.log(resistanceList)
+        return resistanceList
+
+    }
+
+
+
 
 
     buildMoveSet(learnableMoves) {
@@ -57,10 +109,8 @@ export default class Pokemon {
 
         if (moveSet.length < 1) {
             moveSet.push(new Move("normal", "tackle", 40, 100))
-        }
-        
+        }  
         return moveSet
-
     }
 
 
