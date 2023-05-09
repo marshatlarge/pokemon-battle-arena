@@ -28,7 +28,7 @@ export default class MenuUIController {
             //I can call load battle here with the battle loader but call it asyncronously and immediately go to a waiting screen while waiting for it
             setTimeout(() => {
                 BattleLoader.loadBattle()
-            }, 5000)
+            }, 4000)
            
         })
     }
