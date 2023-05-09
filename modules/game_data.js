@@ -1,4 +1,4 @@
-class TypeData {
+class GameData {
     constructor(){
 
         this.typeResistances = this.getTypeResistances()
@@ -316,6 +316,7 @@ class TypeData {
     }
 }
 
+export default new GameData()
 
 
 
