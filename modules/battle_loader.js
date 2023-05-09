@@ -39,7 +39,7 @@ class BattleLoader {
 
     makeUserTrainer() { //FIX THIS
 
-        let moveList = ["flamethrower", "tackle", "slash", "fire punch"]
+        let moveList = ["flamethrower", "tackle", "slash", "bite"]
         let typeList = ["fire","flying"]
         let charizard = new Pokemon('Charizard', moveList, typeList)
 
