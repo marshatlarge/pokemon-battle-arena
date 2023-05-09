@@ -97,7 +97,7 @@ export default class BattleUIController {
             
             moveButton.addEventListener("click", () => {
                 this.backButton.style.display = "none" 
-                battleConductor.conductUserUseMove(moveButton.textContent.toLowerCase())
+                battleConductor.conductUserUseMove(moveButton.textContent)
                 BattleAnnouncer.updateAnnouncerBoxText()
                 if(this.announcerBox.textContent.startsWith(`${battleConductor.user.pokemon.name} used`)) {
                     this.updateEnemyHealthBar(battleConductor)

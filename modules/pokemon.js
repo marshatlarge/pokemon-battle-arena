@@ -76,7 +76,9 @@ export default class Pokemon {
     }
 
     getMove(string) { //Gets move object given the name of a move
+       
         for (let move of this.moveSet) {
+            
             if (move.name === string) {
                 return move
             }

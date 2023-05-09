@@ -29,6 +29,7 @@ export default class BattleConductor {
 
     conductUserUseMove(moveChoice) {
         try {
+            
             this.user.useMove(this.cpu.pokemon, this.user.pickMove(moveChoice))
             
         } catch {
