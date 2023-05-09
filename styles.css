@@ -10,6 +10,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: black;
 }
 
 #gbaCasing {
@@ -20,7 +21,7 @@ body {
 #gbaContainer {
     height: fit-content;
     width: fit-content;
-    background-color: red;
+    background-color: black;
     position: relative;
     
   
@@ -388,7 +389,7 @@ body {
     position: absolute;
     z-index: 32;
     background-color: black;
-    height: 228px;
+    height: 230px;
     
 }
 
@@ -402,8 +403,8 @@ body {
 }
 
 #homeScreenOverlay {
-    width:322px;
-    height:228px;
+    width:323px;
+    height:230px;
     position: relative;
     z-index: 2;
 
