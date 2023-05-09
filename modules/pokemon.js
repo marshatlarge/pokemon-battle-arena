@@ -1,9 +1,11 @@
-class Pokemon {
+import GameData from "./game_data.js"
 
-    constructor(name, moveSet, weaknesses, immunities, resistances) {
+export default class Pokemon {
+
+    constructor(name, learnableMoves, weaknesses, immunities, resistances) {
         
         //CAN ALSO RANDOMLY SET A LEVEL FOR THE ENEMY POKEMON LATER
-        this.moveSet = moveSet
+        this.moveSet = this.buildMoveSet(learnableMoves)
         this.maxHealth = this.generateHealth()
         this.health = this.maxHealth
         this.attack = this.generateAttack()
@@ -35,6 +37,30 @@ class Pokemon {
 
     generateSpeed() {
         return Math.ceil(Math.random() * 50)
+    }
+
+
+
+    buildMoveSet(learnableMoves) {
+        let moveSet = []
+
+        for (let type in GameData.movesMasterList) {
+            for (let move of GameData.movesMasterList[type]) {
+                for (let learnableMoveName of learnableMoves) {
+                    if(move.name.toLowerCase() == learnableMoveName.toLowerCase()) {
+                        moveSet.push(new Move(type, move.name, move.power, move.accuracy))
+                        break
+                    }
+                }
+            }
+        }
+
+        if (moveSet.length < 1) {
+            moveSet.push(new Move("normal", "tackle", 40, 100))
+        }
+        
+        return moveSet
+
     }
 
 
@@ -105,25 +131,3 @@ class Move {
 
 }
 
-let move1 = new Move('Fire','Flamethrower',100,100)
-let move2 = new Move('Normal','Tackle',100,100)
-let move3 = new Move('Water','Watergun',100,100)
-let move4 = new Move('Flying','Air Slash',100,100)
-let move5 = new Move('Fire','Fire Fang',100,100)
-
-
-let moveList1 = [move1, move2, move4, move5]
-let moveList2 = [move2, move3]
-
-let resistanceList1 = ['Fire', 'Grass']
-let weaknessList1 = ['Water']
-let immunitiesList1 = ['']
-
-let resistanceList2 = ['Water', 'Fire']
-let weaknessList2 = ['Electric', 'Grass']
-let immunitiesList2 = ['']
-
-let charizard = new Pokemon('Charizard', moveList1, weaknessList1, immunitiesList1,resistanceList1)
-let blastoise = new Pokemon('Blastoise', moveList2,weaknessList2,immunitiesList2, resistanceList2)
-
-export default {charizard, blastoise}

@@ -1,6 +1,6 @@
 import BattleConductor from "./battle_conductor.js"
 import BattleUIController from "./battle_ui_controller.js"
-import pokemon from "./pokemon.js"
+import Pokemon from "./pokemon.js"
 import Trainer from "./trainer.js"
 
 class BattleLoader {
@@ -14,37 +14,47 @@ class BattleLoader {
     async loadBattle() {
 
         let userTrainer = this.makeUserTrainer()
-        let enemyTrainer = this.makeEnemyTrainer()
+        let enemyTrainer = await this.makeEnemyTrainer()
+
+        console.log(userTrainer.pokemon.moveSet)
+        console.log(enemyTrainer.pokemon.moveSet)
 
         let bc = new BattleConductor(userTrainer, enemyTrainer)
         let buic = new BattleUIController()
+
 
         buic.configureActionButtons(bc)
         buic.configureMoveButtons(bc)
         buic.configureBattleProgression(bc)
         buic.configureBackButton()
 
-        await this.getRandomPokemon()
-
         bc.startBattle()
     }
 
-    makeUserTrainer() {
-        return new Trainer(pokemon.charizard)
+    makeUserTrainer() { //FIX THIS
+
+        let moveList = ["flamethrower", "tackle", "slash", "fire punch"]
+        let charizard = new Pokemon('Charizard', moveList, [""], [""], [""])
+
+        return new Trainer(charizard)
     }
 
-    makeEnemyTrainer() {
-        return new Trainer(pokemon.blastoise)
+    async makeEnemyTrainer() {
+
+        let enemyPokeData = await this.getRandomPokemon()
+        let enemyPoke = new Pokemon(enemyPokeData.pokeName, enemyPokeData.pokeMoves, [""], [""], [""])
+
+        return new Trainer(enemyPoke)
     }
 
     //sprites - front default will be the link to the sprite
     async getRandomPokemon(){
-        console.log("hello")
+        
         let pokemonNum = Math.floor(Math.random() * 151 + 1)
         let url = `https://pokeapi.co/api/v2/pokemon/${pokemonNum}/`
         let response = await fetch(url)
         const pokemonJsonData = await response.json();
-        console.log(pokemonJsonData);
+       
 
         //get and capitalize name
         let nameStr = pokemonJsonData.name
@@ -56,13 +66,13 @@ class BattleLoader {
         //get the type of the pokemon
         let pokeTypes = []
         if (pokemonJsonData.past_types.length > 0) {
-            console.log(gen) 
+             
             for (let type of pokemonJsonData.past_types[0].types) {
                 pokeTypes.push(type.name)
             }   
         } else {
             for (let packet of pokemonJsonData.types) {
-                console.log(packet.type.name)
+                
                 pokeTypes.push(packet.type.name)
             }
         }
@@ -72,11 +82,7 @@ class BattleLoader {
         for (let movePacket of pokemonJsonData.moves) {    
             pokeMoves.push(movePacket.move.name.replace(/-/g, ' '))
         }
-
-        console.log("THIS IS THE RANDOM POKEMON")
-        console.log(pokeName)
-        console.log(pokeTypes)
-        console.log(pokeMoves)
+        
 
         //can move this to separate fucntion
         this.enemyPokemonImg.src = pokeSpriteUrl
