@@ -9,6 +9,7 @@ class BattleLoader {
         this.enemyPokemonImg = document.getElementById("enemyPokemon")
         this.enemyNameDisplay = document.getElementById("enemyNameDisplay")
 
+        this.loadingScreen = document.getElementById("loadingScreen")
     }
 
     async loadBattle() {
@@ -29,6 +30,11 @@ class BattleLoader {
         buic.configureBackButton()
 
         bc.startBattle()
+
+    
+
+        this.loadingScreen.style.display = "none"
+        
     }
 
     makeUserTrainer() { //FIX THIS
