@@ -69,7 +69,9 @@ export default class BattleConductor {
     }
 
     conductCpuTurn() {
-        this.cpu.useMove(this.user.pokemon, this.cpu.pickMove('Tackle'))
+        let randomMoveIndex = Math.floor(Math.random() * (this.cpu.pokemon.moveSet.length))
+        let randomMoveName = this.cpu.pokemon.moveSet[randomMoveIndex].name
+        this.cpu.useMove(this.user.pokemon, this.cpu.pickMove(randomMoveName))
         if(this.getBattlerIsDefeated()) {
             this.endBattle()
         }
