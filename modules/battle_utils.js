@@ -80,11 +80,11 @@ class BattleUtils {
         return false
     }
 
-    applyCritical(damage) {
+    applyCritical(damage) { //applies a damage multiplier for critical hits
         return damage += damage * 1.2
     }
 
-    determineIfMisses(move) { //accuracy assigned in between values of 0 and 100
+    determineIfMisses(move) { //accuracy assigned in between values of 0 and 100 NEED TO FIX BUG FOR THIS
         if (Math.random() > move.accuracy / 100) {
             return true
         }

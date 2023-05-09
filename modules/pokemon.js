@@ -26,7 +26,7 @@ class Pokemon {
     }
 
     generateAttack() {
-        return Math.ceil(Math.random() * 10 + 25)
+        return Math.ceil(Math.random() * 10 + 35)
     }
 
     generateDefense() {
@@ -40,16 +40,16 @@ class Pokemon {
 
 
     //base this on the pokemon's defensive stat
-    takeDamage(damage) { //I can redo the formulas for taking and dealing damage later. Just want to make the system work first.
+    takeDamage(damage) { //absorbs some damage based on pokemon's defense stat
         this.health += -damage + Math.round(this.defense / 100 * damage)
         return
     }
 
-    calculateDamage(move) { //calculates damage for a given move given the pokemon's attack stat
+    calculateDamage(move) { //boosts attack based on pokemon's attack stat
         return this.attack + Math.round((move.power * this.attack / 100))
     }
 
-    getMove(string) { //gets a move based on the string--pass move selection into this and it returns a move
+    getMove(string) { //Gets move object given the name of a move
         for (let move of this.moveSet) {
             if (move.name === string) {
                 return move
