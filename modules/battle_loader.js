@@ -10,6 +10,8 @@ class BattleLoader {
         this.enemyNameDisplay = document.getElementById("enemyNameDisplay")
 
         this.loadingScreen = document.getElementById("loadingScreen")
+
+        this.enemyLevelDisplay = document.getElementById("enemyLevelDisplay")
     }
 
     async loadBattle() {
@@ -22,6 +24,8 @@ class BattleLoader {
 
         let bc = new BattleConductor(userTrainer, enemyTrainer)
         let buic = new BattleUIController()
+
+        this.enemyLevelDisplay.innerText = "Lv" + this.generateEnemyLevel()
 
 
         buic.configureActionButtons(bc)
@@ -44,6 +48,11 @@ class BattleLoader {
         let charizard = new Pokemon('Charizard', moveList, typeList)
 
         return new Trainer(charizard)
+    }
+
+    generateEnemyLevel() {
+        let lvl = Math.floor(Math.random() * 10 + 66)
+        return lvl
     }
 
     async makeEnemyTrainer() {
