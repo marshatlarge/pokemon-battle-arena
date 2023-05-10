@@ -65,6 +65,9 @@ class BattleLoader {
 
         //get and capitalize name
         let nameStr = pokemonJsonData.name
+        if (nameStr == "nidoran-f") {
+            nameStr = "nidoran"
+        }
         const pokeName = nameStr.charAt(0).toUpperCase() + nameStr.slice(1);
 
         //get link to sprite image
