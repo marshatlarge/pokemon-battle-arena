@@ -32,7 +32,7 @@ export default class BattleUIController {
         this.actionOptions = document.getElementsByClassName("actionOption")
         this.backButton = document.getElementById("backButton")
 
-        
+   
     }
 
     configureActionButtons(battleConductor) {

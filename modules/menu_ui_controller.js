@@ -29,8 +29,15 @@ export default class MenuUIController {
             setTimeout(() => {
                 BattleLoader.loadBattle()
             }, 4000)
-           
         })
+
+
+
+        this.infoButton.addEventListener("click", ()=>{
+            window.open("https://github.com/manielsen13/Pokemon_Battle_Arena", "_blank")
+        })
+
+
     }
 
     triggerMenuFlashAnimations() {
