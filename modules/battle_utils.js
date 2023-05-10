@@ -9,8 +9,17 @@ class BattleUtils {
     applyDamageModifiers(damage, target, move) {
 
         if (this.getIsImmune(target, move)) {
-            BattleAnnouncer.announceImmunity()
+            BattleAnnouncer.announceImmunity(target)
             damage = this.applyImmunityNullifier(damage)
+            return damage
+        }
+
+        if (this.calculateIsCritical()) {
+            BattleAnnouncer.announceCrit()
+            damage = this.applyCritical(damage)
+        }
+
+        if(this.getIsSupereffective(target, move) && this.getIsResistant(target, move)) {
             return damage
         }
 
@@ -24,10 +33,6 @@ class BattleUtils {
             damage = this.applyResistanceNullifier(damage)
         }
 
-        if (this.calculateIsCritical()) {
-            BattleAnnouncer.announceCrit()
-            damage = this.applyCritical(damage)
-        }
         return damage
     }
 

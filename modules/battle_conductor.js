@@ -74,7 +74,7 @@ export default class BattleConductor {
         this.cpu.useMove(this.user.pokemon, this.cpu.pickMove(randomMoveName))
         if(this.getBattlerIsDefeated()) {
             this.endBattle()
-        }
+        }   
     }
 
     getBattlerIsDefeated() {

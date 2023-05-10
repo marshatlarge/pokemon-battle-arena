@@ -89,7 +89,7 @@ class BattleLoader {
         for (let movePacket of pokemonJsonData.moves) {    
             pokeMoves.push(movePacket.move.name.replace(/-/g, ' '))
         }
-        
+
 
         //can move this to separate fucntion
         this.enemyPokemonImg.src = pokeSpriteUrl
