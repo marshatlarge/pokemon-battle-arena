@@ -158,6 +158,18 @@ class BattleAnnouncer {
         this.announcementsQueue.push(text)
     }
 
+    isAnnouncingMissNext(){
+        if(this.announcementsQueue.length > 0) {
+            if(this.announcementsQueue[0] == `The attack missed!`) {
+                return true
+            }
+            if (this.announcementsQueue[0].slice(-9) == "effect...") {
+                return true
+            }
+
+        }
+    }
+
 
 
     updateAnnouncerBoxText() {

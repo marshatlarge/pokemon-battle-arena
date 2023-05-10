@@ -85,6 +85,7 @@ class BattleUtils {
     }
 
     determineIfMisses(move) { //accuracy assigned in between values of 0 and 100 NEED TO FIX BUG FOR THIS
+        return true
         if (Math.random() > move.accuracy / 100) {
             return true
         }

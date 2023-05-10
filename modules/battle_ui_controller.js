@@ -99,6 +99,11 @@ export default class BattleUIController {
                 this.backButton.style.display = "none" 
                 battleConductor.conductUserUseMove(moveButton.textContent)
                 BattleAnnouncer.updateAnnouncerBoxText()
+                if(BattleAnnouncer.isAnnouncingMissNext()) {
+                    
+                    battleConductor.conductCpuTurn()
+                    return
+                }
                 if(this.announcerBox.textContent.startsWith(`${battleConductor.user.pokemon.name} used`)) {
                     this.updateEnemyHealthBar(battleConductor)
                     this.triggerEnemyAnimation()
@@ -145,6 +150,9 @@ export default class BattleUIController {
             return
         }
         BattleAnnouncer.updateAnnouncerBoxText()
+        if(BattleAnnouncer.isAnnouncingMissNext()) {
+            return
+        }
         if(this.announcerBox.textContent.startsWith(`${battleConductor.cpu.pokemon.name} used`)) {
             this.updateUserHealthBar(battleConductor)
             this.triggerUserAnimation()
