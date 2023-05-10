@@ -14,6 +14,8 @@ body {
 }
 
 #gbaCasing {
+    position: relative;
+    z-index: 110;
     width: 400px;
     height: auto;
 }
@@ -49,7 +51,7 @@ body {
     left: 0;
     padding: 5px;
 
-    z-index: 30;
+    z-index: 111;
     display: flex;
 
     justify-content: center;
@@ -86,19 +88,27 @@ body {
     justify-content: center; 
 }
 
+#enemyVisualContainer {
+    position: absolute;
+    height: 85px;
+    right: 5px;
+    top: 8px;
+}
+
 
 #enemyCircle {
     position: absolute;
-    width: 160px;
-    height: auto;
-    right: 5px;
-    top: 55px;
+    top: 33px;
+    right: -10px;
+    width: auto;
+    height: 50px;
+    
 }
 
 #enemyPokemon {
     position: absolute;
-    right: 35px;
-    top: 0px;
+    right: 30px;
+    bottom: -3px;
     z-index: 2;
     width: 100px;
     height: auto;
@@ -377,7 +387,7 @@ body {
     background-color: #FFFFE1;
     border: 2px solid #2E3F19;
 
-    z-index: 15;
+    z-index: 112;
     display:none;
 }
 
@@ -387,7 +397,7 @@ body {
 
 #homeScreen {
     position: absolute;
-    z-index: 32;
+    z-index: 120;
     background-color: black;
     height: 230px;
     
@@ -476,7 +486,7 @@ body {
 
     background-image: repeating-linear-gradient(#F8FDFD, #F7F7F7 5%);
 
-    z-index: 31;
+    z-index: 112;
 
     display: flex;
     justify-content: center;
