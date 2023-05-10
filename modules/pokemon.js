@@ -151,8 +151,8 @@ export default class Pokemon {
             throw new Error ('Health already full')
         }
 
-        if (this.health <= this.maxHealth - 50) {
-            this.health += 50
+        if (this.health <= this.maxHealth - 100) {
+            this.health += 100
         }
         else {
             this.health = this.maxHealth

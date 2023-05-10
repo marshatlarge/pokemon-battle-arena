@@ -46,7 +46,7 @@ class BattleUtils {
     }
 
     applySupereffectiveMultiplier(damage) {
-        return damage * 1.5
+        return damage * 1.8
         
     }
     
@@ -62,7 +62,7 @@ class BattleUtils {
 
     applyResistanceNullifier(damage) {
         //decrease damage if resistant (attack not very effective)
-        return damage * 0.85
+        return damage * 0.60
     }
 
     getIsImmune(target, move) {
@@ -86,7 +86,7 @@ class BattleUtils {
     }
 
     applyCritical(damage) { //applies a damage multiplier for critical hits
-        return damage += damage * 1.2
+        return damage += damage * 1.4
     }
 
     determineIfMisses(move) {

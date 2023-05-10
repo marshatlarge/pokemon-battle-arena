@@ -19,10 +19,13 @@ export default class Trainer {
             return
         }
         
-        //calculate base damage and apply damage mods
+        //calculate base damage (based on attack stat)
         let damage = this.pokemon.calculateDamage(move)
+
+        //apply modifiers
         damage = BattleUtils.applyDamageModifiers(damage, target, move)
-        //deal damage to target (based on their defense)-need to re-work damage algorithms/calculation but over logic works
+
+        //deal damage to target (based on target's defense)
         target.takeDamage(damage)
     }
 
