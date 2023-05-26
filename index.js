@@ -1,5 +1,4 @@
-
-import MenuUIController from "./modules/menu_ui_controller.js"
+import MenuUIController from "./modules/menu_ui_controller.js";
 
 //Need a module to do trainer and pokemon and move generation via pulling from the API
 //Also, randomly assign a level and stats to the enemy trainer's pokemon
@@ -10,14 +9,9 @@ import MenuUIController from "./modules/menu_ui_controller.js"
 //fist build UI by hardcoding sizes and positions of assets. Then, convert those to relative sizes and positions, make responsive.
 //MAKE THE TYPING STRENGTHS AND WEAKNESSES BASED ON THE POKEMONS TYPE
 
-
 //MAKE IT SO THE ENEMY POKEMON WILL PICK A MOVE AT RANDOM
 
-
-let muic = new MenuUIController()
-muic.configureButtons()
-
-
-
+let muic = new MenuUIController();
+muic.configureButtons();
 
 //BATTLE SYSTEM ISTELF IS COMPLETE EXCEPT FOR DAMAGE FORMULAS (WILL TWEAK AT END)

@@ -1,126 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="index.js"></script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
 
     <title>Pokemon Battle Arena</title>
-</head>
-<body>
-    
+  </head>
+  <body>
     <div id="gbaContainer">
-        <img id="gbaCasing" src="./images/gameboy_advance.png">
-        <div id="screenBackground">
-            <div id="homeScreen">
-                <!--NEED TO LINK THIS INFO BUTTON TO THE GITHUB README-->
-                <button id="infoButton">?</button>
-                <div id="homeScreenUnderlay"></div>
-                <img id="homeScreenOverlay" src="./images/home_screen.png">
-                <button id="startButton">Start Battle</button>
-            </div>
-
-            <div id="loadingScreen">
-                <img id="loadingIcon" src="./images/pokeball.png">
-                <p>Searching the PokéAPI for a trainer...</p>
-
-            </div>
-
-
-
-            <div id="pokeballCountBox">
-                <img id="pokeballPicture" src="./images/pokeball.png">
-                <p class="numberLabel">x</p>
-                <p class="numberLabel">5</p>
-            </div>
-            <div id="potionCountBox">
-                <img id="potionPicture" src="./images/potion.png">
-                <p class="numberLabel">x</p>
-                <p id="potionNumberLabel" class="numberLabel">3</p>
-            </div>
-            <button id="backButton">Back</button>
-
-
-
-
-
-            <div id="textBoxContainer">
-                <div class="mustardBG">
-                    <p id="announcerBox"></p>
-                </div>
-
-                <div id="selectionBox" class="mustardBG">
-                    <div id="actionOptionsList">
-                        <button id="fightButton" class="actionOption">Fight</button>
-                        <button id="healButton" class="actionOption">Heal</button>
-                        <button id="pokeballButton" class="actionOption">Pokéball</button>
-                        <button id="runButton" class="actionOption">Run</button>
-                    </div>
-                    <div id="moveOptionsList">
-                        <button class="moveOption">Flamethrower</button>
-                        <button class="moveOption">Tackle</button>
-                        <button class="moveOption">Slash</button>
-                        <button class="moveOption">Bite</button>
-
-
-
-                    </div>
-                </div>
-            </div>
-
-            <!--May have to put these in their own container to keep them attached and centered relative to eachother easier-->
-            <div id="enemyVisualContainer">
-                <img id="enemyCircle" src="./images/battle_circle.png">
-                <img id="enemyPokemon">
-            </div>
-            
-
-            <img id="userCircle" src="./images/battle_circle.png">
-            <img id="charizard" src="images/charizard.png">
-
-            <div id="userInfoDisplayContainer" class="infoDisplayContainer"> <!--Make this ivory/cream colored and then give it a black border with a bit of rounded corners-->
-                <div class="topRow">
-                    <p class="nameDisplay">Charizard</p>
-                    <!--Gender symbol display here using an image-->
-                    <p class="levelDisplay">Lv70</p>
-                </div>
-                <div class="middleRow">
-                    <p>HP</p>
-                    <div id="userHealthContainer" class="healthBarContainer"><!--Make the outline of this white and the inside black-->
-                        <div id="userHealthBar" class="healthBar"></div> <!--Make this green and change the size of it to indicate health--ONLY DECREASE THE WIDTH OF THIS TO 10PX, OR ELSE STARTS TO BREAK ON UI--> 
-                    </div> 
-                </div>
-                <div class="lastRow">
-                    <p id="hpDisplay">327/327</p>
-                </div>
-            <!--Maybe add a little arrow or triangle shape that points to the pokemon it is responsible for-->
-            </div>
-
-            <div id="enemyInfoDisplayContainer" class="infoDisplayContainer"> <!--Make this ivory/cream colored and then give it a black border with a bit of rounded corners-->
-                <div class="topRow">
-                    <p id="enemyNameDisplay" class="nameDisplay">Blastoise</p>
-                    <!--Gender symbol display here using an image-->
-                    <p id ="enemyLevelDisplay" class="levelDisplay"></p>
-                </div>
-                <div class="middleRow">
-                    <p>HP</p>
-                    <div id="enemyHealthContainer" class="healthBarContainer"><!--Make the outline of this white and the inside black-->
-                        <div id="enemyHealthBar" class="healthBar"></div> <!--Make this green and change the size of it to indicate health--ONLY DECREASE THE WIDTH OF THIS TO 10PX, OR ELSE STARTS TO BREAK ON UI--> 
-                    </div> 
-                </div>
-            <!--Maybe add a little arrow or triangle shape that points to the pokemon it is responsible for-->
-            </div>
-
-
-
+      <img id="gbaCasing" src="./images/gameboy_advance.png" />
+      <div id="screenBackground">
+        <div id="homeScreen">
+          <!--NEED TO LINK THIS INFO BUTTON TO THE GITHUB README-->
+          <button id="infoButton">?</button>
+          <div id="homeScreenUnderlay"></div>
+          <img id="homeScreenOverlay" src="./images/home_screen.png" />
+          <button id="startButton">Start Battle</button>
         </div>
 
+        <div id="loadingScreen">
+          <img id="loadingIcon" src="./images/pokeball.png" />
+          <p>Searching the PokéAPI for a trainer...</p>
+        </div>
 
+        <div id="pokeballCountBox">
+          <img id="pokeballPicture" src="./images/pokeball.png" />
+          <p class="numberLabel">x</p>
+          <p class="numberLabel">5</p>
+        </div>
+        <div id="potionCountBox">
+          <img id="potionPicture" src="./images/potion.png" />
+          <p class="numberLabel">x</p>
+          <p id="potionNumberLabel" class="numberLabel">3</p>
+        </div>
+        <button id="backButton">Back</button>
 
+        <div id="textBoxContainer">
+          <div class="mustardBG">
+            <p id="announcerBox"></p>
+          </div>
+
+          <div id="selectionBox" class="mustardBG">
+            <div id="actionOptionsList">
+              <button id="fightButton" class="actionOption">Fight</button>
+              <button id="healButton" class="actionOption">Heal</button>
+              <button id="pokeballButton" class="actionOption">Pokéball</button>
+              <button id="runButton" class="actionOption">Run</button>
+            </div>
+            <div id="moveOptionsList">
+              <button class="moveOption">Flamethrower</button>
+              <button class="moveOption">Tackle</button>
+              <button class="moveOption">Slash</button>
+              <button class="moveOption">Bite</button>
+            </div>
+          </div>
+        </div>
+
+        <!--May have to put these in their own container to keep them attached and centered relative to eachother easier-->
+        <div id="enemyVisualContainer">
+          <img id="enemyCircle" src="./images/battle_circle.png" />
+          <img id="enemyPokemon" />
+        </div>
+
+        <img id="userCircle" src="./images/battle_circle.png" />
+        <img id="charizard" src="images/charizard.png" />
+
+        <div id="userInfoDisplayContainer" class="infoDisplayContainer">
+          <!--Make this ivory/cream colored and then give it a black border with a bit of rounded corners-->
+          <div class="topRow">
+            <p class="nameDisplay">Charizard</p>
+            <!--Gender symbol display here using an image-->
+            <p class="levelDisplay">Lv70</p>
+          </div>
+          <div class="middleRow">
+            <p>HP</p>
+            <div id="userHealthContainer" class="healthBarContainer">
+              <!--Make the outline of this white and the inside black-->
+              <div id="userHealthBar" class="healthBar"></div>
+              <!--Make this green and change the size of it to indicate health--ONLY DECREASE THE WIDTH OF THIS TO 10PX, OR ELSE STARTS TO BREAK ON UI-->
+            </div>
+          </div>
+          <div class="lastRow">
+            <p id="hpDisplay">327/327</p>
+          </div>
+          <!--Maybe add a little arrow or triangle shape that points to the pokemon it is responsible for-->
+        </div>
+
+        <div id="enemyInfoDisplayContainer" class="infoDisplayContainer">
+          <!--Make this ivory/cream colored and then give it a black border with a bit of rounded corners-->
+          <div class="topRow">
+            <p id="enemyNameDisplay" class="nameDisplay">Blastoise</p>
+            <!--Gender symbol display here using an image-->
+            <p id="enemyLevelDisplay" class="levelDisplay"></p>
+          </div>
+          <div class="middleRow">
+            <p>HP</p>
+            <div id="enemyHealthContainer" class="healthBarContainer">
+              <!--Make the outline of this white and the inside black-->
+              <div id="enemyHealthBar" class="healthBar"></div>
+              <!--Make this green and change the size of it to indicate health--ONLY DECREASE THE WIDTH OF THIS TO 10PX, OR ELSE STARTS TO BREAK ON UI-->
+            </div>
+          </div>
+          <!--Maybe add a little arrow or triangle shape that points to the pokemon it is responsible for-->
+        </div>
+      </div>
     </div>
-    
-    
-</body>
+  </body>
 </html>

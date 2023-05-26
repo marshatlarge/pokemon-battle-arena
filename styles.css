@@ -1,506 +1,492 @@
 button {
-    color: black;
+  color: black;
 }
 
 p {
-    margin: 0;
+  margin: 0;
 }
 
 body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
 }
 
 #gbaCasing {
-    position: relative;
-    z-index: 110;
-    width: 400px;
-    height: auto;
+  position: relative;
+  z-index: 110;
+  width: 400px;
+  height: auto;
 }
 
 #gbaContainer {
-    height: fit-content;
-    width: fit-content;
-    background-color: black;
-    position: relative;
-    
-  
+  height: fit-content;
+  width: fit-content;
+  background-color: black;
+  position: relative;
 }
 
 #screenBackground {
-    width:322px;
-    height:228px;
+  width: 322px;
+  height: 228px;
 
-    position: absolute;
-    
-    background-color: black;
-    top: 54px;
-    left: 38px;
+  position: absolute;
 
-    background-image: repeating-linear-gradient(#F8FDFD, #F7F7F7 5%);
+  background-color: black;
+  top: 54px;
+  left: 38px;
+
+  background-image: repeating-linear-gradient(#f8fdfd, #f7f7f7 5%);
 }
 
 #textBoxContainer {
-    background-color: #2B3131;
-    position: absolute;
-    width: 312px;
-    height: 65px;
-    bottom:0px;
-    left: 0;
-    padding: 5px;
+  background-color: #2b3131;
+  position: absolute;
+  width: 312px;
+  height: 65px;
+  bottom: 0px;
+  left: 0;
+  padding: 5px;
 
-    z-index: 111;
-    display: flex;
+  z-index: 111;
+  display: flex;
 
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
 
-    gap: 3px;
+  gap: 3px;
 }
 
 .mustardBG {
-    width: 312px;
-    height: 65px;
-    background-color: #C9AE5A;
-    border-radius: 5px;
-    padding: 2px;
+  width: 312px;
+  height: 65px;
+  background-color: #c9ae5a;
+  border-radius: 5px;
+  padding: 2px;
 
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 #announcerBox {
-    background-color: #335069;
-    border: 2px solid #E5DEE6;
-    border-radius: 3px;
-    padding: 5px;
-    font-size: 14px;
+  background-color: #335069;
+  border: 2px solid #e5dee6;
+  border-radius: 3px;
+  padding: 5px;
+  font-size: 14px;
 
-    height: 50px;
-    color: white;  
+  height: 50px;
+  color: white;
 }
 
 #selectionBox {
-    background-color: #FFFFE1;
-    display: flex;
-    justify-content: center; 
+  background-color: #ffffe1;
+  display: flex;
+  justify-content: center;
 }
 
 #enemyVisualContainer {
-    position: absolute;
-    height: 85px;
-    right: 5px;
-    top: 8px;
+  position: absolute;
+  height: 85px;
+  right: 5px;
+  top: 8px;
 }
 
-
 #enemyCircle {
-    position: absolute;
-    top: 33px;
-    right: -10px;
-    width: auto;
-    height: 50px;
-    
+  position: absolute;
+  top: 33px;
+  right: -10px;
+  width: auto;
+  height: 50px;
 }
 
 #enemyPokemon {
-    position: absolute;
-    right: 30px;
-    bottom: -3px;
-    z-index: 2;
-    width: 100px;
-    height: auto;
-
+  position: absolute;
+  right: 30px;
+  bottom: -3px;
+  z-index: 2;
+  width: 100px;
+  height: auto;
 }
 
 #userCircle {
-    position: absolute;
-    z-index: 1;
+  position: absolute;
+  z-index: 1;
 
-    width: 150px;
-    height: auto;
+  width: 150px;
+  height: auto;
 
-    bottom: 52px;
-    left: 5px;
+  bottom: 52px;
+  left: 5px;
 }
 
 #charizard {
-    z-index: 2;
-    position: absolute;
+  z-index: 2;
+  position: absolute;
 
-    width: 120px;
-    height: auto;
-    left: 20px;
-    bottom: 30px;
+  width: 120px;
+  height: auto;
+  left: 20px;
+  bottom: 30px;
 }
 
 .infoDisplayContainer {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
 
-    background-color: #FFFFE1;
-    border: 3px solid #2E3F19;
-    border-radius: 5px;
- 
-    width: 135px;
-    padding: 2px;
-    gap: 0px;
+  background-color: #ffffe1;
+  border: 3px solid #2e3f19;
+  border-radius: 5px;
+
+  width: 135px;
+  padding: 2px;
+  gap: 0px;
 }
 
 #userInfoDisplayContainer {
-    right: 10px;
-    bottom: 76px;
-    height: 45px;
+  right: 10px;
+  bottom: 76px;
+  height: 45px;
 }
 
 #enemyInfoDisplayContainer {
-    height: 30px;
-    top: 15px;
-    left: 10px;
-    padding:3px;
+  height: 30px;
+  top: 15px;
+  left: 10px;
+  padding: 3px;
 }
 
 .topRow {
-    font-size: 12px;
-    height: 15px;
-    display: flex;
-    margin-right: 3px;
-    margin-left: 3px;
+  font-size: 12px;
+  height: 15px;
+  display: flex;
+  margin-right: 3px;
+  margin-left: 3px;
 }
 
 .levelDisplay {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 .middleRow {
-    background-color: #57695B;
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-    height: 15px;
-    border-radius: 15px;
-    width: fit-content;
-    padding-left: 3px;
-    padding-right: 1px;
-    margin-left: auto;
-    
+  background-color: #57695b;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  height: 15px;
+  border-radius: 15px;
+  width: fit-content;
+  padding-left: 3px;
+  padding-right: 1px;
+  margin-left: auto;
 }
 
 .middleRow p {
-    color: #F6C25E;
+  color: #f6c25e;
 }
 
 .healthBarContainer {
-    background-color: #2E3F19;
-    height: 10px;
-    border-radius: 10px;
-    width: 100px;
-    border: 1px solid #ECEEEC;
-    margin-left: 3px; 
+  background-color: #2e3f19;
+  height: 10px;
+  border-radius: 10px;
+  width: 100px;
+  border: 1px solid #eceeec;
+  margin-left: 3px;
 }
 
 .healthBar {
-    background-color: #99FCB4;
-    height: 10px;
-    border-radius: 5px;
-    width: 100px;
-    margin-right: auto;
+  background-color: #99fcb4;
+  height: 10px;
+  border-radius: 5px;
+  width: 100px;
+  margin-right: auto;
 }
 
 .lastRow {
-    margin-left: auto;
-    width: fit-content;
-    font-size: 12px;
-    margin-right: 4px;
+  margin-left: auto;
+  width: fit-content;
+  font-size: 12px;
+  margin-right: 4px;
 }
 
 #actionOptionsList {
-   
-    grid-template-rows: 30px 30px;
-    grid-template-columns: 70px 70px;
-    display: none;
-    font-size: 14px;
+  grid-template-rows: 30px 30px;
+  grid-template-columns: 70px 70px;
+  display: none;
+  font-size: 14px;
 
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
 
-    margin-left: 18px;
-
+  margin-left: 18px;
 }
 
 #moveOptionsList {
-    grid-template-rows: 30px 30px;
-    grid-template-columns: 82px 82px;
-    column-gap: 10px;
-    display: none;
-    font-size: 14px;
+  grid-template-rows: 30px 30px;
+  grid-template-columns: 82px 82px;
+  column-gap: 10px;
+  display: none;
+  font-size: 14px;
 
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
 
-
-    margin-left: 15px;
+  margin-left: 15px;
 }
 
-.actionOption, .moveOption {
-    width: fit-content;
-    height: fit-content;
-    display: flex;
-    justify-content: center;
-    align-items: center; 
+.actionOption,
+.moveOption {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    background: none;
-    border: 4px solid transparent;
+  background: none;
+  border: 4px solid transparent;
 
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .actionOption:hover {
-    border: none;
-    border-left: 4px double red;
-    font-weight: bold;
+  border: none;
+  border-left: 4px double red;
+  font-weight: bold;
 }
 
-.moveOption:hover{
-    border: none;
-    border-left: 4px double red;
-    font-weight: bold;
-
+.moveOption:hover {
+  border: none;
+  border-left: 4px double red;
+  font-weight: bold;
 }
 
 @keyframes blink {
-    0% {
-        opacity: 1;
-    }
-    49% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 1;
+  }
+  49% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes textFlash {
-    0% {
-        color: black;
-    }
-    49% {
-        color: gray;
-    }
-    50% {
-        color: gray;
-    }
-    100% {
-        color: black;
-    }
+  0% {
+    color: black;
+  }
+  49% {
+    color: gray;
+  }
+  50% {
+    color: gray;
+  }
+  100% {
+    color: black;
+  }
 }
 
 @keyframes helpFlash {
-    0% {
-        color: #F7F359;
-    }
-    49% {
-        color: gray;
-    }
-    50% {
-        color: gray;
-    }
-    100% {
-        color: #F7F359;
-    }
+  0% {
+    color: #f7f359;
+  }
+  49% {
+    color: gray;
+  }
+  50% {
+    color: gray;
+  }
+  100% {
+    color: #f7f359;
+  }
 }
 
 @keyframes startFlash {
-    0% {
-        
-        text-shadow: -2px 0 #456AB3, 0 2px #456AB3, 2px 0 #456AB3, 0 -2px #456AB3;
-    }
-    49% {
-        
-        text-shadow: -2px 0 transparent, 0 2px transparent, 2px 0 transparent, 0 -2px transparent;
-        color: gray;   
-    }
-    50% {
-        text-shadow: -2px 0 transparent, 0 2px transparent, 2px 0 transparent, 0 -2px transparent;
-        color: gray;
-        
-    }
-    100% {
-      
-        text-shadow: -2px 0 #456AB3, 0 2px #456AB3, 2px 0 #456AB3, 0 -2px #456AB3;
-    }
+  0% {
+    text-shadow: -2px 0 #456ab3, 0 2px #456ab3, 2px 0 #456ab3, 0 -2px #456ab3;
+  }
+  49% {
+    text-shadow: -2px 0 transparent, 0 2px transparent, 2px 0 transparent,
+      0 -2px transparent;
+    color: gray;
+  }
+  50% {
+    text-shadow: -2px 0 transparent, 0 2px transparent, 2px 0 transparent,
+      0 -2px transparent;
+    color: gray;
+  }
+  100% {
+    text-shadow: -2px 0 #456ab3, 0 2px #456ab3, 2px 0 #456ab3, 0 -2px #456ab3;
+  }
 }
 
 @keyframes screenColorSwitch {
-    0% {
-        background-color: black;
-    }
-    35% {
-        background-color: #9D391A;
-    }
-    70% {
-        background-color: #4F0C06;
-    }
-    100% {
-        background-color: #B94A1F;
-    }
+  0% {
+    background-color: black;
+  }
+  35% {
+    background-color: #9d391a;
+  }
+  70% {
+    background-color: #4f0c06;
+  }
+  100% {
+    background-color: #b94a1f;
+  }
 }
 
-
-#pokeballPicture, #potionPicture {
-    height: 20px;
-    width: auto;
+#pokeballPicture,
+#potionPicture {
+  height: 20px;
+  width: auto;
 }
 
-#pokeballCountBox, #potionCountBox {
+#pokeballCountBox,
+#potionCountBox {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 60px;
+  height: 30px;
 
-    display: none;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    width: 60px;
-    height: 30px;
+  background-color: #ffffe1;
+  border: 2px solid #2e3f19;
 
-    background-color: #FFFFE1;
-    border: 2px solid #2E3F19;
+  z-index: 5;
 
-    z-index: 5;
-
-    font-size: 12px;
-    gap: 3px;
+  font-size: 12px;
+  gap: 3px;
 }
 
 #backButton {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    padding: 5px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 5px;
 
-    background-color: #FFFFE1;
-    border: 2px solid #2E3F19;
+  background-color: #ffffe1;
+  border: 2px solid #2e3f19;
 
-    z-index: 112;
-    display:none;
+  z-index: 112;
+  display: none;
 }
 
-#backButton:hover{
-    background-color: #C9AE5A
+#backButton:hover {
+  background-color: #c9ae5a;
 }
 
 #homeScreen {
-    position: absolute;
-    z-index: 120;
-    background-color: black;
-    height: 230px;
-    
+  position: absolute;
+  z-index: 120;
+  background-color: black;
+  height: 230px;
 }
 
 #homeScreenUnderlay {
-    height: 150px;
-    width: 322px;
-    z-index: 1;
-    background-color: black;
-    position: absolute;
-    animation: 8s infinite alternate screenColorSwitch;
+  height: 150px;
+  width: 322px;
+  z-index: 1;
+  background-color: black;
+  position: absolute;
+  animation: 8s infinite alternate screenColorSwitch;
 }
 
 #homeScreenOverlay {
-    width:323px;
-    height:230px;
-    position: relative;
-    z-index: 2;
-
+  width: 323px;
+  height: 230px;
+  position: relative;
+  z-index: 2;
 }
 
 #startButton {
-    position: absolute;
-    bottom: 35px;
-    left: 55px;
-    z-index: 3;
+  position: absolute;
+  bottom: 35px;
+  left: 55px;
+  z-index: 3;
 
-    width: fit-content;
-    height: fit-content;
-    display: flex;
-    justify-content: center;
-    align-items: center; 
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    background: none;
-    border: 4px double transparent;
-   
-    color: #F7F359;
-    text-shadow: -2px 0 #456AB3, 0 2px #456AB3, 2px 0 #456AB3, 0 -2px #456AB3;
-    font-weight: bold;
-    font-size: 14px;
+  background: none;
+  border: 4px double transparent;
+
+  color: #f7f359;
+  text-shadow: -2px 0 #456ab3, 0 2px #456ab3, 2px 0 #456ab3, 0 -2px #456ab3;
+  font-weight: bold;
+  font-size: 14px;
 }
 
-#startButton:hover{
-    border-bottom: 4px double #456AB3;
-    font-size: 15px;
+#startButton:hover {
+  border-bottom: 4px double #456ab3;
+  font-size: 15px;
 }
 
 #infoButton {
-    position: absolute;
-    top: 17px;
-    right: 6px;
-    z-index: 3;
+  position: absolute;
+  top: 17px;
+  right: 6px;
+  z-index: 3;
 
-    width: fit-content;
-    height: fit-content;
-    display: flex;
-    justify-content: center;
-    align-items: center; 
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    background: none;
-    
+  background: none;
 
-    border: 2px solid #8C2A13;
-    color: #F7F359;
-    font-weight: bold;
-    font-size: 15px;
+  border: 2px solid #8c2a13;
+  color: #f7f359;
+  font-weight: bold;
+  font-size: 15px;
 }
 
-#infoButton:hover{
-    background-color: #456AB3; 
+#infoButton:hover {
+  background-color: #456ab3;
 }
 
-@keyframes spin { 
-    100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } 
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 
 #loadingScreen {
-    width:322px;
-    height:228px;
+  width: 322px;
+  height: 228px;
 
-    position: absolute;
-    
-    background-color: black;
-    
+  position: absolute;
 
-    background-image: repeating-linear-gradient(#F8FDFD, #F7F7F7 5%);
+  background-color: black;
 
-    z-index: 112;
+  background-image: repeating-linear-gradient(#f8fdfd, #f7f7f7 5%);
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
+  z-index: 112;
 
-    font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
 
+  font-size: 14px;
 }
 
 #loadingIcon {
-    width: 50px;
-    height: 50px;
-    animation:spin 3s linear infinite;
-   
+  width: 50px;
+  height: 50px;
+  animation: spin 3s linear infinite;
 }
