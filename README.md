@@ -1,6 +1,6 @@
-# Pokemon Battle Arena
+# Pokémon Battle Arena
 
-The Pokemon Battle Arena is a web-based app that simulates Pokemon battles with randomly generated opponents from generation 1. It is built using Vanilla JavaScript, HTML, and CSS. It utilizes the PokeAPI to fetch Pokemon data.
+The Pokémon Battle Arena is a web-based app that simulates Pokémon battles with randomly generated opponents from generation 1. It is built using Vanilla JavaScript, HTML, and CSS. It utilizes the PokéAPI to fetch Pokémon data.
 
 ![Example 2](./screenshots/example1.png)
 
@@ -22,7 +22,7 @@ The Pokémon Battle Arena implements a slightly different battle system compared
 
 - **Move Selection**: The simulator currently provides a limited move selection for both the user and the opponent Pokémon. Moves are single-turn moves that don't cause status effects, buffs, or debuffs. The user can choose from Charizard's predefined set of moves during their turn, while the opponent trainer selects a move at random. The app aggregates all learnable valid moves by the opposing pokemon to create the opponent's move pool.
 
-- **Announcer System, Item System, and Pokeballs**: For UX purposes, you can heal directly in battle by using a potion rather than having to open your bag. There's a throw pokeball action option, although this is just for show (you can try, but you can't catch an opposing trainer's pokemon). The text and announcements during the battle are tailored to fit the features of the app rather than match the original game.
+- **Announcer System, Item System, and Pokeballs**: For UX purposes, you can heal directly in battle by using a potion rather than having to open your bag. There's a throw pokeball action option, although this is just for show (you can try, but you can't catch an opposing trainer's pokémon). The text and announcements during the battle are tailored to fit the features of the app rather than match the original game.
 
 ## Architecture, Design, and File Descriptions
 
@@ -56,9 +56,9 @@ The project consists of the following files:
 
 ## Dependencies
 
-The Pokemon Battle Simulator relies on the following dependencies:
+The Pokémon Battle Simulator relies on the following dependencies:
 
-- PokeAPI: Provides the Pokemon data used in the battles. The application fetches data from the PokeAPI using JavaScript's `fetch` function.
+- PokéAPI: Provides the Pokémon data used in the battles. The application fetches data from the PokéAPI using JavaScript's `fetch` function.
 
 ## How to Run
 
