@@ -2,9 +2,9 @@
 
 The Pokemon Battle Arena is a web-based app that simulates Pokemon battles with randomly generated opponents from generation 1. It is built using Vanilla JavaScript, HTML, and CSS. It utilizes the PokeAPI to fetch Pokemon data.
 
-## Live Demo
+## [Live Demo](https://manielsen13.github.io/pokemon-battle-arena/)
 
-Check out the [live version of the project here](https://manielsen13.github.io/pokemon-battle-arena/). Enjoy!
+Check out the live version of the project [here](https://manielsen13.github.io/pokemon-battle-arena/). Enjoy!
 
 ## How to Play
 
