@@ -4,9 +4,9 @@ The Pokémon Battle Arena is a web-based app that simulates Pokémon battles wit
 
 ![Example 2](./screenshots/example1.png)
 
-## [Live Demo](https://manielsen13.github.io/pokemon-battle-arena/)
+## [Live Demo](https://marshatlarge.github.io/pokemon-battle-arena/)
 
-Check out the live version of the project [here](https://manielsen13.github.io/pokemon-battle-arena/). Enjoy!
+Check out the live version of the project [here](https://marshatlarge.github.io/pokemon-battle-arena/). Enjoy!
 
 ## How to Play
 
